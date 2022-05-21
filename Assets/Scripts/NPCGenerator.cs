@@ -88,6 +88,8 @@ public class NPCGenerator : MonoBehaviour
         return npcObject;
     }
 
+    //TOPI OLET UPEA IHMISEN LAPSI
+
 }
 
 
