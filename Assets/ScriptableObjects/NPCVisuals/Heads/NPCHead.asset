@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c40754bc2335547be03cba52348166, type: 3}
   m_Name: NPCHead
   m_EditorClassIdentifier: 
-  HeadPrefab: {fileID: 8993170669958677801, guid: 2d3ab7ed6bd59334cbe323ef65f9eaa8, type: 3}
+  HeadPrefab: {fileID: 401350635424867634, guid: 2b35f43ae84861d45b733bdc72b85d1d, type: 3}

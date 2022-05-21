@@ -31,13 +31,13 @@ public class NPCGenerator : MonoBehaviour
 
     public GameObject GenerateNPC(Transform startPosition)
     {
-        HeadController head = heads.GetRandom().HeadPrefab.GetComponent<HeadController>();
-        GameObject npcObject = GameObject.Instantiate(head.gameObject, startPosition.position, Quaternion.identity);
+        GameObject npcObject = GameObject.Instantiate(heads.GetRandom().HeadPrefab, startPosition.position, Quaternion.identity);
 
         if(npcObject.TryGetComponent(out NPC npc))
         {
+            HeadController headController = npcObject.GetComponentInChildren<HeadController>();
             //set npc visuals
-            
+            Debug.Log("Found NPC Component");
             Sprite hair = hairs.GetRandom();
             Sprite eyeBrow = eyeBrows.GetRandom();
             Sprite eye = eyes.GetRandom();
@@ -47,73 +47,34 @@ public class NPCGenerator : MonoBehaviour
 
             //set positions for sprites on head
             //hair
-            GameObject hairObject = GameObject.Instantiate(visualsPrefab, head.HairPosition.position, Quaternion.identity, npcObject.transform);
-            if(hairObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer hairRenderer))
-            {
-                hairRenderer.sprite = hair;
-            }
+            headController.Hair.sprite = hair;
             //eyebrows
-            GameObject leftEyeBrow = GameObject.Instantiate(visualsPrefab, head.LeftEyeBrowPosition.position, Quaternion.identity, npcObject.transform);
-            if(leftEyeBrow.TryGetComponent<SpriteRenderer>(out SpriteRenderer leftEyeBrowRenderer))
-            {
-                leftEyeBrowRenderer.sprite = eyeBrow;
-                leftEyeBrowRenderer.flipX = true;
-            }
-            GameObject rightEyeBrow = GameObject.Instantiate(visualsPrefab, head.RightEyeBrowPosition.position, Quaternion.identity, npcObject.transform);
-            if(rightEyeBrow.TryGetComponent<SpriteRenderer>(out SpriteRenderer rightEyeBrowRenderer))
-            {
-                rightEyeBrowRenderer.sprite = eyeBrow;
-            }
+            headController.LeftEyeBrow.sprite = eyeBrow;
+            headController.RightEyeBrow.sprite = eyeBrow;
+            headController.LeftEyeBrow.flipX = true;
+
             //eyes
-            GameObject leftEye = GameObject.Instantiate(visualsPrefab, head.LeftEyePosition.position, Quaternion.identity, npcObject.transform);
-            if(leftEye.TryGetComponent<SpriteRenderer>(out SpriteRenderer leftEyeRenderer))
-            {
-                leftEyeRenderer.sprite = eye;
-                leftEyeRenderer.flipX = true;
-            }
-            GameObject rightEye = GameObject.Instantiate(visualsPrefab, head.RightEyePosition.position, Quaternion.identity, npcObject.transform);
-            if(rightEye.TryGetComponent<SpriteRenderer>(out SpriteRenderer rightEyeRenderer))
-            {
-                rightEyeRenderer.sprite = eye;
-            }
+            headController.LeftEye.sprite = eye;
+            headController.LeftEye.flipX = true;
+            headController.RightEye.sprite = eye;
+            
             //nose
-            GameObject noseObject = GameObject.Instantiate(visualsPrefab, head.NosePosition.position, Quaternion.identity, npcObject.transform);
-            if(noseObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer noseRenderer))
-            {
-                noseRenderer.sprite = nose;
-            }
+            headController.Nose.sprite = nose;
+
             //ears
-            GameObject leftEar = GameObject.Instantiate(visualsPrefab, head.LeftEarPosition.position, Quaternion.identity, npcObject.transform);
-            if(leftEar.TryGetComponent<SpriteRenderer>(out SpriteRenderer leftEarRenderer))
-            {
-                leftEarRenderer.sprite = ear;
-                leftEarRenderer.flipX = true;
-            }
-            GameObject rightEar = GameObject.Instantiate(visualsPrefab, head.RightEarPosition.position, Quaternion.identity, npcObject.transform);
-            if(rightEar.TryGetComponent<SpriteRenderer>(out SpriteRenderer rightEarRenderer))
-            {
-                rightEarRenderer.sprite = ear;
-            }
+            headController.LeftEar.sprite = ear;
+            headController.LeftEar.flipX = true;
+            headController.RightEar.sprite = ear;
+            
             //mouth
-            GameObject mouthObject = GameObject.Instantiate(visualsPrefab, head.MouthPosition.position, Quaternion.identity, npcObject.transform);
-            if(mouthObject.TryGetComponent<SpriteRenderer>(out SpriteRenderer mouthRenderer))
-            {
-                mouthRenderer.sprite = mouth;
-            }
-            //background
-            SpriteRenderer headRenderer = null;
-            if(npcObject.GetComponent<SpriteRenderer>() != null)
-            {
-                headRenderer = npcObject.GetComponent<SpriteRenderer>();
-                headRenderer.sprite = head.Head;
-            }
+            headController.Mouth.sprite = mouth;
 
             //apply random skin color to head, ears and nose
             int colorIndex = UnityEngine.Random.Range(0, availableSkinColors.Length);
-            ApplyColor(headRenderer, availableSkinColors[colorIndex]);
-            ApplyColor(leftEarRenderer, availableSkinColors[colorIndex]);
-            ApplyColor(rightEarRenderer, availableSkinColors[colorIndex]);
-            ApplyColor(noseRenderer, availableSkinColors[colorIndex]);
+            ApplyColor(headController.GetComponent<SpriteRenderer>(), availableSkinColors[colorIndex]);
+            ApplyColor(headController.LeftEar, availableSkinColors[colorIndex]);
+            ApplyColor(headController.RightEar, availableSkinColors[colorIndex]);
+            ApplyColor(headController.Nose, availableSkinColors[colorIndex]);
                
         }
 

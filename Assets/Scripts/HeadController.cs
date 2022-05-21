@@ -5,19 +5,19 @@ public class HeadController : MonoBehaviour
     [Header("Background/Head")]
     public Sprite Head;
     [Header("Hair")]
-    public Transform HairPosition;
+    public SpriteRenderer Hair;
     [Header("Eyes")]
-    public Transform LeftEyePosition;
-    public Transform RightEyePosition;
-    public Transform LeftEyeBrowPosition;
-    public Transform RightEyeBrowPosition;
+    public SpriteRenderer LeftEye;
+    public SpriteRenderer RightEye;
+    public SpriteRenderer LeftEyeBrow;
+    public SpriteRenderer RightEyeBrow;
     [Header("Ears")]
-    public Transform LeftEarPosition;
-    public Transform RightEarPosition;
+    public SpriteRenderer LeftEar;
+    public SpriteRenderer RightEar;
     [Header("Mouth")]
-    public Transform MouthPosition;
+    public SpriteRenderer Mouth;
     [Header("Nose")]
-    public Transform NosePosition;
+    public SpriteRenderer Nose;
 
 }
 
