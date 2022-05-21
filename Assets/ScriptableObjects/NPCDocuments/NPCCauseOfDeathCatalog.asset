@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: DeathByHorse
-  m_EditorClassIdentifier: Assembly-CSharp::CauseOfDeathScriptableObject
-  Description: This feller died because he got kicked in the nuts by a horse
-  FulfilledCriteria: 0000000001000000
+  m_Script: {fileID: 11500000, guid: 609a605fae8e1c345b25d131a7284c9b, type: 3}
+  m_Name: NPCCauseOfDeathCatalog
+  m_EditorClassIdentifier: 
+  CausesOfDeath:
+  - {fileID: 11400000, guid: ba7645da7e7ba6a4494a08aa9797ca18, type: 2}

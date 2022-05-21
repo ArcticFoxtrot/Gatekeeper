@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 public class NPCGenerator : MonoBehaviour
 {
 
-    [SerializeField] private GameObject NPCPrefab;
     [SerializeField] private GameObject visualsPrefab;
-    [Header("References to NPC visuals/catalogues")]
+    [Header("References to NPC visuals")]
     [SerializeField] private NPCHairCatalog hairs;
     [SerializeField] private NPCHeadCatalog heads;
     [SerializeField] private NPCEyeBrowCatalog eyeBrows;
@@ -12,15 +12,32 @@ public class NPCGenerator : MonoBehaviour
     [SerializeField] private NPCNoseCatalog noses;
     [SerializeField] private NPCEarCatalog ears;
     [SerializeField] private NPCMouthCatalog mouths;
+    [Header("References to NPC information")]
+    [SerializeField] private NPCCauseOfDeathCatalog causeOfDeathCatalog;
+    [SerializeField] private NPCBasicInformationSets NPCBasicInformationSets;
+    [Header("NPC Skin color settings")]
+    [SerializeField] private Color[] availableSkinColors;
 
 
-    public GameObject GenerateNPC()
+    private GameObject currentNPC;
+
+    private void OnEnable() {
+        GameEventManager.OnGameEvent += HandleGameEvent;
+    }
+
+    private void OnDisable() {
+        GameEventManager.OnGameEvent -= HandleGameEvent;
+    }
+
+    public GameObject GenerateNPC(Transform startPosition)
     {
-        GameObject npcObject = GameObject.Instantiate(NPCPrefab, transform.position, Quaternion.identity);
+        HeadController head = heads.GetRandom().HeadPrefab.GetComponent<HeadController>();
+        GameObject npcObject = GameObject.Instantiate(head.gameObject, startPosition.position, Quaternion.identity);
+
         if(npcObject.TryGetComponent(out NPC npc))
         {
             //set npc visuals
-            NPCHead head = heads.GetRandom();
+            
             Sprite hair = hairs.GetRandom();
             Sprite eyeBrow = eyeBrows.GetRandom();
             Sprite eye = eyes.GetRandom();
@@ -40,9 +57,9 @@ public class NPCGenerator : MonoBehaviour
             if(leftEyeBrow.TryGetComponent<SpriteRenderer>(out SpriteRenderer leftEyeBrowRenderer))
             {
                 leftEyeBrowRenderer.sprite = eyeBrow;
-                leftEyeBrowRenderer.flipY = true;
+                leftEyeBrowRenderer.flipX = true;
             }
-            GameObject rightEyeBrow = GameObject.Instantiate(visualsPrefab, head.LeftEyeBrowPosition.position, Quaternion.identity, npcObject.transform);
+            GameObject rightEyeBrow = GameObject.Instantiate(visualsPrefab, head.RightEyeBrowPosition.position, Quaternion.identity, npcObject.transform);
             if(rightEyeBrow.TryGetComponent<SpriteRenderer>(out SpriteRenderer rightEyeBrowRenderer))
             {
                 rightEyeBrowRenderer.sprite = eyeBrow;
@@ -52,7 +69,7 @@ public class NPCGenerator : MonoBehaviour
             if(leftEye.TryGetComponent<SpriteRenderer>(out SpriteRenderer leftEyeRenderer))
             {
                 leftEyeRenderer.sprite = eye;
-                leftEyeRenderer.flipY = true;
+                leftEyeRenderer.flipX = true;
             }
             GameObject rightEye = GameObject.Instantiate(visualsPrefab, head.RightEyePosition.position, Quaternion.identity, npcObject.transform);
             if(rightEye.TryGetComponent<SpriteRenderer>(out SpriteRenderer rightEyeRenderer))
@@ -70,7 +87,7 @@ public class NPCGenerator : MonoBehaviour
             if(leftEar.TryGetComponent<SpriteRenderer>(out SpriteRenderer leftEarRenderer))
             {
                 leftEarRenderer.sprite = ear;
-                leftEarRenderer.flipY = true;
+                leftEarRenderer.flipX = true;
             }
             GameObject rightEar = GameObject.Instantiate(visualsPrefab, head.RightEarPosition.position, Quaternion.identity, npcObject.transform);
             if(rightEar.TryGetComponent<SpriteRenderer>(out SpriteRenderer rightEarRenderer))
@@ -83,13 +100,61 @@ public class NPCGenerator : MonoBehaviour
             {
                 mouthRenderer.sprite = mouth;
             }
+            //background
+            SpriteRenderer headRenderer = null;
+            if(head.GetComponent<SpriteRenderer>() != null)
+            {
+                headRenderer = head.GetComponent<SpriteRenderer>();
+                headRenderer.sprite = head.Head;
+            }
 
+            //apply random skin color to head, ears and nose
+            int colorIndex = UnityEngine.Random.Range(0, availableSkinColors.Length);
+            ApplyColor(headRenderer, availableSkinColors[colorIndex]);
+            ApplyColor(leftEarRenderer, availableSkinColors[colorIndex]);
+            ApplyColor(rightEarRenderer, availableSkinColors[colorIndex]);
+            ApplyColor(noseRenderer, availableSkinColors[colorIndex]);
+               
         }
+
+        //setup NPC information
+        SetupInformation(npcObject);
+        GameEventManager.Send(new GameEvent(this, GameEvent.NPCCreated, new object[]{npcObject}));
         return npcObject;
 
     }
 
+    private void SetupInformation(GameObject npcObject)
+    {
+        if(npcObject.TryGetComponent<NPC>(out NPC npc))
+        {
+            //get random stuff
+            npc.CauseOfDeath = causeOfDeathCatalog.GetRandom().GetCauseOfDeathDocument();
+            if(npc.CauseOfDeath == null)
+            {
+                Debug.LogError("cause of death is null");
+            }
+            npc.BasicInformation = NPCBasicInformationSets.GetRandomNPCInformation();
+            if(npc.BasicInformation.Name == null)
+            {
+                Debug.LogError("basic info is null");
+            }
+        }
+    }
+
+    private void ApplyColor(SpriteRenderer renderer, Color color)
+    {
+        if(renderer != null)
+        {
+            renderer.color = color;
+        }
+        
+    }
+
+    private void HandleGameEvent(object sender, GameEvent gameEvent)
+    {
+
+    }
+    
 }
-
-
 

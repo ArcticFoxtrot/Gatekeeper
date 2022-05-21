@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d8d7fe9388a7544c989101bac487762, type: 3}
   m_Name: NPCMouthCatalog
   m_EditorClassIdentifier: 
-  AllMouths: []
+  AllMouths:
+  - {fileID: 21300000, guid: 74734da62fedc394aa01b90d469e3813, type: 3}

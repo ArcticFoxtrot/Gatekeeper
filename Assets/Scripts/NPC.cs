@@ -3,23 +3,32 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour 
 {
-    //visuals
 
-    private GameObject Head;
-
-    //documents
-    //basic information
-
-    public int Age;
-    public string Name;
-    public string Origin;
-    public DateTime BirthDate;
-    public DateTime DeathDate;
+    public NPCBasicInformation BasicInformation;
     public CauseOfDeathDocument CauseOfDeath;
 
-    public void Initialize(GameObject head)
-    {
+    [SerializeField] Animator animator;
 
+    public void MoveToWindow()
+    {
+        Debug.Log("Moving to window!");
+        animator.SetTrigger("MoveToWindow");
+    }
+
+    public void AnimationEnded()
+    {
+        GameEventManager.Send(new GameEvent(this, GameEvent.NPCReachedDestination));
+    }
+
+    public void MoveToHeaven()
+    {
+        animator.SetTrigger("MoveToHeaven");
+    }
+
+
+    public void MoveToHell()
+    {
+        animator.SetTrigger("MoveToHell");
     }
 }
 

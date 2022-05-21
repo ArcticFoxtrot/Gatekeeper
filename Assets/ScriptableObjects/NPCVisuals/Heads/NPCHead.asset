@@ -9,15 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 50c40754bc2335547be03cba52348166, type: 3}
   m_Name: NPCHead
-  m_EditorClassIdentifier: Assembly-CSharp::NPCHead
+  m_EditorClassIdentifier: 
   HeadPrefab: {fileID: 8993170669958677801, guid: 2d3ab7ed6bd59334cbe323ef65f9eaa8, type: 3}
-  LeftEyePosition: {fileID: 0}
-  RightEyePosition: {fileID: 0}
-  LeftEyeBrowPosition: {fileID: 0}
-  RightEyeBrowPosition: {fileID: 0}
-  LeftEarPosition: {fileID: 0}
-  RightEarPosition: {fileID: 0}
-  MouthPosition: {fileID: 0}
-  NosePosition: {fileID: 0}
