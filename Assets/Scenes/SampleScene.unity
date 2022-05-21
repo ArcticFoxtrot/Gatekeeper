@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &119143036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119143037}
+  m_Layer: 0
+  m_Name: NPCStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119143037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119143036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &517755744
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 727009570}
   - component: {fileID: 727009569}
+  - component: {fileID: 727009571}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -380,7 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc39a3ccc5ca944d97d03965d32e7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCPrefab: {fileID: 4794852980075823420, guid: 8724cd83d5746834494a1ce03043d2d5, type: 3}
   visualsPrefab: {fileID: 3713639988574281369, guid: 0e43f28109cb07147a3c02a3a19c9f90, type: 3}
   hairs: {fileID: 11400000, guid: dbd959d120a34c045806151c10829311, type: 2}
   heads: {fileID: 11400000, guid: 251ff362a1190d840ae8da986a78ffd2, type: 2}
@@ -411,6 +442,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &727009571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727009568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92806c815d970094681dbad5e2652220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generator: {fileID: 727009569}
+  startPosition: {fileID: 119143037}
 --- !u!1 &833846511
 GameObject:
   m_ObjectHideFlags: 0

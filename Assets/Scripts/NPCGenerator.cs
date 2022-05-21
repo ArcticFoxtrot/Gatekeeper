@@ -102,9 +102,9 @@ public class NPCGenerator : MonoBehaviour
             }
             //background
             SpriteRenderer headRenderer = null;
-            if(head.GetComponent<SpriteRenderer>() != null)
+            if(npcObject.GetComponent<SpriteRenderer>() != null)
             {
-                headRenderer = head.GetComponent<SpriteRenderer>();
+                headRenderer = npcObject.GetComponent<SpriteRenderer>();
                 headRenderer.sprite = head.Head;
             }
 
