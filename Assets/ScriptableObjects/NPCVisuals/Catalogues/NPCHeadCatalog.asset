@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e24d318bfce77740972e59bf11706e9, type: 3}
   m_Name: NPCHeadCatalog
   m_EditorClassIdentifier: 
-  AllHeads: []
+  AllHeads:
+  - {fileID: 11400000, guid: 325b7de977b718d4cad3c3caf706e8fb, type: 2}
