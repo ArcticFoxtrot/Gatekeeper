@@ -87,10 +87,7 @@ public class NPCGenerator : MonoBehaviour
         }
         return npcObject;
 
-        //HAISTA ANTTI PITKÄ PAPU
     }
-
-    //TOPI OLET UPEA IHMISEN LAPSI
 
 }
 
