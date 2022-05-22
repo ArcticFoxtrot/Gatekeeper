@@ -32,6 +32,17 @@ public enum Name
     Antti
 }
 
+public enum Ritual
+{
+    BloodSacrifice,
+    FoodSacrifice,
+    WealthSacrifice,
+    CoveredInHolyOil,
+    Embalmed,
+    AteTheHolySpam,
+    None
+}
+
 /*
 public class CriteriaCreator
 {
@@ -168,6 +179,25 @@ public class OriginCriterion : ICriterion
             return true;
         }
 
+        return false;
+    }
+}
+
+public class RitualCriterion : ICriterion
+{
+    private Ritual ritual;
+
+    public RitualCriterion(Ritual ritual)
+    {
+        this.ritual = ritual;
+    }
+
+    public bool CheckForMatches(NPC npc)
+    {
+        if(npc.BasicInformation.Ritual == ritual)
+        {
+            return true;
+        }
         return false;
     }
 }
