@@ -8,7 +8,6 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private NPCGenerator generator;
     private CriteriaHandler criteriaHandler;
-    [SerializeField] private Transform startPosition;
 
     private void Start() {
         GameObject firstNPC = generator.GenerateNPC();
