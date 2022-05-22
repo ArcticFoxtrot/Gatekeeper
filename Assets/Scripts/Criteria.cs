@@ -26,6 +26,13 @@ public enum Origin
     None
 }
 
+public enum Name
+{
+    Topi,
+    Antti
+}
+
+/*
 public class CriteriaCreator
 {
     private int[] ageThresholds = new int[]{20, 30, 40, 50, 60, 70}; //maybe not the best to hardcode them here
@@ -75,7 +82,7 @@ public class CriteriaCreator
         return allCriteria[index];
     }
 }
-
+*/
 
 public interface ICriterion
 {
@@ -108,9 +115,9 @@ public class AgeCriterion : ICriterion
 public class NameCriterion : ICriterion
 {
 
-    private string name;
+    private Name name;
 
-    public NameCriterion(string matchingName)
+    public NameCriterion(Name matchingName)
     {
         name = matchingName;
     }

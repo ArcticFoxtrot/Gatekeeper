@@ -7,7 +7,7 @@ public class NPCBasicInformationSets : ScriptableObject
     public int MinAge;
     public int MaxAge;
 
-    public string[] Names;
+    public Name[] Names;
     public Origin[] Origins;
 
  
@@ -32,7 +32,7 @@ public struct NPCBasicInformation : IDocument
     public int BirthYear;
     public int DeathYear;
     public int Age;
-    public string Name;
+    public Name Name;
     public Origin Origin;
 
     public string ReadDocument()

@@ -7,7 +7,6 @@ public class StageManager : MonoBehaviour
     private GameObject currentNPC;
 
     [SerializeField] private NPCGenerator generator;
-    [SerializeField] private GodGenerator godGenerator;
     private CriteriaHandler criteriaHandler;
     [SerializeField] private Transform startPosition;
 
