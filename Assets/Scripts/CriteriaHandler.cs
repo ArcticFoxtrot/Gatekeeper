@@ -81,9 +81,9 @@ public class God
         }
     }
 
-    internal void AssignCriteria(List<ICriterion> criteria)
+    public void AssignCriteria(List<ICriterion> criteria)
     {
-        throw new NotImplementedException();
+        PleasingCriteria = criteria;
     }
 }
 

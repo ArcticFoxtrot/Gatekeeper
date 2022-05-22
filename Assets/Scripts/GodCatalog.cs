@@ -1,20 +1,32 @@
+using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "GodCatalog", menuName = "ScriptableObjects/GodCatalog", order = 1)]
 public class GodCatalog : ScriptableObject
 {
-    public string[] GodNames;
-    public Sprite[] GodImages;
-    public string[] GodDescriptions;
+    public GodScriptableObject[] Gods;
 
-    public God GetRandom()
+    public God GetGodWithIndex(int index)
     {
-        int nameIndex = Random.Range(0, GodNames.Length);
-        string name = GodNames[nameIndex];
-        int imageIndex = Random.Range(0, GodImages.Length);
-        Sprite image = GodImages[imageIndex];
-        int descIndex = Random.Range(0, GodDescriptions.Length);
-        string description = GodDescriptions[descIndex];
-        var god = new God(name, description, image, 0);
+        GodScriptableObject godScriptableObject = Gods[index];
+        God god = new God(godScriptableObject.Name, godScriptableObject.Description, godScriptableObject.Image, 0);
+
+        //create list of all criteria assigned to god scriptableobject
+        List<ICriterion> allCriteria = new List<ICriterion>();
+        foreach(var c in godScriptableObject.CauseOfDeathCriteria)
+        {
+            CauseOfDeathCriterion cause = new CauseOfDeathCriterion(c);
+            allCriteria.Add(cause);
+        }
+
+        foreach(var c in godScriptableObject.OriginCriteria)
+        {
+            OriginCriterion origin = new OriginCriterion(c);
+            allCriteria.Add(origin);
+        }
+
+        AgeCriterion ageCriterion = new AgeCriterion(godScriptableObject.AgeCriteriaMin, godScriptableObject.AgeCriteriaMax);
+        god.AssignCriteria(allCriteria);
         return god;
     }
+
 }

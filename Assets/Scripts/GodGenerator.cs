@@ -4,23 +4,12 @@ using UnityEngine;
 public class GodGenerator : MonoBehaviour 
 {
     [SerializeField] private GodCatalog godCatalog;
-    [SerializeField] private CriteriaCreator criteriaCreator;
+    //[SerializeField] private CriteriaCreator criteriaCreator;
     [SerializeField] private int maxCriteriaCount;
 
-    public void Initialize()
+    public God GenerateGod(int index)
     {
-        criteriaCreator.Initialize();
-    }
-    
-    public God GenerateGod()
-    {
-        God newGod = godCatalog.GetRandom();
-        List<ICriterion> criteria = new List<ICriterion>();
-        for (int i = 0; i < maxCriteriaCount; i++)
-        {
-            criteria.Add(criteriaCreator.GetRandom());
-        }
-        newGod.AssignCriteria(criteria);
+        God newGod = godCatalog.GetGodWithIndex(index);
         return newGod;
     }
 
