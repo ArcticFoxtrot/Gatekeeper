@@ -23,6 +23,7 @@ public class GameEvent
     public const string SentToEarth = "SentToEarth";
     public const string NPCReachedDestination = "NPCReachedDestination";
     public const string EndOfTime = "EndOfTime";
+    public const string NewGodCreated = "NewGodCreated";
 }
 
 public static class GameEventManager

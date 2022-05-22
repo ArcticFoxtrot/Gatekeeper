@@ -85,5 +85,11 @@ public class God
     {
         PleasingCriteria = criteria;
     }
+
+    public string GetGodDescription()
+    {
+        var retVal = String.Format("Name: {0} \nDescription: {1} \nCurrent Approval: {2}", Name, Description, scoreWithGod.ToString());
+        return retVal;
+    }
 }
 

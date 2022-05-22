@@ -96,7 +96,7 @@ public class NPCGenerator : MonoBehaviour
                 Debug.LogError("cause of death is null");
             }
             npc.BasicInformation = NPCBasicInformationSets.GetRandomNPCInformation();
-            if(npc.BasicInformation.Name == null)
+            if(String.IsNullOrEmpty(npc.BasicInformation.Name.ToString()))
             {
                 Debug.LogError("basic info is null");
             }

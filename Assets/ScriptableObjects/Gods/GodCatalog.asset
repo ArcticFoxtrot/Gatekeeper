@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gods:
   - {fileID: 11400000, guid: 755ee2fd1fbb21d4d90bc344057cd1d7, type: 2}
+  - {fileID: 11400000, guid: 8afd225b3e6d45441b609f5a18da0209, type: 2}
