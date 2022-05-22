@@ -24,6 +24,12 @@ public class GodCatalog : ScriptableObject
             allCriteria.Add(origin);
         }
 
+        foreach(var c in godScriptableObject.RitualCriteria)
+        {
+            RitualCriterion ritual = new RitualCriterion(c);
+            allCriteria.Add(ritual);
+        }
+
         AgeCriterion ageCriterion = new AgeCriterion(godScriptableObject.AgeCriteriaMin, godScriptableObject.AgeCriteriaMax);
         god.AssignCriteria(allCriteria);
         return god;
