@@ -5,13 +5,13 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     private GameObject currentNPC;
-    private GameObject previousNPC;
 
     [SerializeField] private NPCGenerator generator;
     [SerializeField] private Transform startPosition;
 
     private void Start() {
-        GameObject firstNPC = generator.GenerateNPC(startPosition);
+        GameObject firstNPC = generator.GenerateNPC();
+
         currentNPC = firstNPC;
         currentNPC.GetComponent<NPC>().MoveToWindow();
     }
@@ -27,23 +27,21 @@ public class StageManager : MonoBehaviour
     private void SwapToNewNPC()
     {
         Debug.Log("Swapping NPC");
-        previousNPC = currentNPC;
-        currentNPC = generator.GenerateNPC(startPosition);
-    }
-
-    private void DestroyPreviousNPC()
-    {
-        Debug.Log("Destroying NPC");
-        GameObject.Destroy(currentNPC);
-        currentNPC = generator.GenerateNPC(startPosition);
-        currentNPC.GetComponent<NPC>().MoveToWindow();
+        currentNPC = generator.GenerateNPC();
+        if(currentNPC.TryGetComponent<NPC>(out NPC npc))
+        {
+            npc.MoveToWindow();
+        }
     }
 
     private void HandleGameEvent(object sender, GameEvent gameEvent)
     {
         if(gameEvent.EventType == GameEvent.NPCReachedDestination)
         {
-            DestroyPreviousNPC();
+            if(gameEvent.Sender is NPC npc)
+            {
+                Destroy(npc.gameObject);
+            }
         }
         else if(gameEvent.EventType == GameEvent.EntryApproved || gameEvent.EventType == GameEvent.EntryNotApproved || gameEvent.EventType == GameEvent.SentToEarth)
         {

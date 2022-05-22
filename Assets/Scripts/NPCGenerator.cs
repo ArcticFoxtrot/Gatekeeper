@@ -29,9 +29,9 @@ public class NPCGenerator : MonoBehaviour
         GameEventManager.OnGameEvent -= HandleGameEvent;
     }
 
-    public GameObject GenerateNPC(Transform startPosition)
+    public GameObject GenerateNPC()
     {
-        GameObject npcObject = GameObject.Instantiate(heads.GetRandom().HeadPrefab, startPosition.position, Quaternion.identity);
+        GameObject npcObject = GameObject.Instantiate(heads.GetRandom().HeadPrefab, this.transform.position, Quaternion.identity);
 
         if(npcObject.TryGetComponent(out NPC npc))
         {
