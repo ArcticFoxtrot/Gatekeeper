@@ -1,27 +1,26 @@
 using System.Collections.Generic;
 
 
-public class CauseOfDeathDocument : IDocument// read scriptable object
+public class CauseOfDeathDocument : IDocument
 {
 
     private string description;
-    private List<Criteria> fulfillsCriteria;
+    private List<CauseOfDeath> fulfillsCriteria;
 
 
-    public CauseOfDeathDocument(string description, Criteria[] fulfillsCriteria)
+    public CauseOfDeathDocument(string description, CauseOfDeath[] fulfillsCriteria)
     {
         this.description = description;
-        this.fulfillsCriteria = new List<Criteria>(fulfillsCriteria);
+        this.fulfillsCriteria = new List<CauseOfDeath>(fulfillsCriteria);
     }
-
 
     public string ReadDocument()
     {
         return description;
     }
 
-    public bool DoesFulfillCriteria(Criteria criteria)
+    public bool DoesFulfillCriteria(CauseOfDeath cause)
     {
-        return fulfillsCriteria.Contains(criteria);
+        return fulfillsCriteria.Contains(cause);
     }
 }

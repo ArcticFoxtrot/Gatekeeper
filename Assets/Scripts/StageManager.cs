@@ -7,11 +7,14 @@ public class StageManager : MonoBehaviour
     private GameObject currentNPC;
 
     [SerializeField] private NPCGenerator generator;
+    [SerializeField] private GodGenerator godGenerator;
+    private CriteriaHandler criteriaHandler;
     [SerializeField] private Transform startPosition;
 
     private void Start() {
         GameObject firstNPC = generator.GenerateNPC();
-
+        criteriaHandler = new CriteriaHandler();
+        criteriaHandler.Initialize();
         currentNPC = firstNPC;
         currentNPC.GetComponent<NPC>().MoveToWindow();
     }
@@ -50,10 +53,17 @@ public class StageManager : MonoBehaviour
                 if(gameEvent.EventType == GameEvent.EntryNotApproved)
                 {
                     npc.MoveToHell();
+                    criteriaHandler.HandleNPCRejection(npc);
                 }
-                else
+                else if(gameEvent.EventType == GameEvent.EntryApproved)
                 {
                     npc.MoveToHeaven();
+                    criteriaHandler.HandleNPCRejection(npc);
+                }
+                else if(gameEvent.EventType == GameEvent.SentToEarth)
+                {
+                    npc.MoveToHeaven();
+                    criteriaHandler.HandleNPCReturned(npc);
                 }
             }
 
