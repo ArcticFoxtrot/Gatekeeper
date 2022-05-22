@@ -11,4 +11,5 @@ public class GodScriptableObject : ScriptableObject
     public int AgeCriteriaMin;
     public int AgeCriteriaMax;
     public Name[] NameCriteria;
+    public Ritual[] RitualCriteria;
 }
