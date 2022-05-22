@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllMouths:
   - {fileID: 21300000, guid: 74734da62fedc394aa01b90d469e3813, type: 3}
+  - {fileID: 21300000, guid: a680e6951571ed14985ac2e40f8d5fba, type: 3}
+  - {fileID: 21300000, guid: 4911212d2eff0c547a06c075425c3d18, type: 3}
+  - {fileID: 21300000, guid: c3f1e7b15dd0200498bb2912f212ad51, type: 3}
