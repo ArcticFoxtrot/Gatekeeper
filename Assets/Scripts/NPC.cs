@@ -15,6 +15,11 @@ public class NPC : MonoBehaviour
         animator.SetTrigger("MoveToWindow");
     }
 
+    public void WindowReached()
+    {
+        GameEventManager.Send(new GameEvent(this, GameEvent.NextNPCReady, new object[]{this.gameObject}));
+    }
+
     public void AnimationEnded()
     {
         GameEventManager.Send(new GameEvent(this, GameEvent.NPCReachedDestination));
