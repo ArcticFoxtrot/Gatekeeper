@@ -27,7 +27,7 @@ public class NPCInformationHandler : MonoBehaviour
             
             if(character.TryGetComponent(out NPC npc))
             {
-                string basicInfo = String.Format("Name: {0} \nAge : {1} \nBirth: {2} \nFrom: {3}", npc.BasicInformation.Name, npc.BasicInformation.Age, npc.BasicInformation.BirthYear, npc.BasicInformation.Origin);
+                string basicInfo = npc.BasicInformation.ReadDocument();
                 basicInfoText.text = basicInfo;
                 causeOfDeath.text = String.Format("Cause of Death: " + npc.CauseOfDeath.ReadDocument());
             }

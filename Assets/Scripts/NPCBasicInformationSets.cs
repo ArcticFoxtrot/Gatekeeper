@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "NPCBasicInformationSets", menuName = "ScriptableObjects/Documents/NPCBasicInformationSets", order = 1)]
 public class NPCBasicInformationSets : ScriptableObject
@@ -7,7 +8,7 @@ public class NPCBasicInformationSets : ScriptableObject
     public int MaxAge;
 
     public string[] Names;
-    public string[] Origins;
+    public Origin[] Origins;
 
  
     public NPCBasicInformation GetRandomNPCInformation()
@@ -23,17 +24,19 @@ public class NPCBasicInformationSets : ScriptableObject
         info.DeathYear = DateTime.Now.Year;
 
         return info;
-    
-
-
     }
 }
 
-public struct NPCBasicInformation
+public struct NPCBasicInformation : IDocument
 {
     public int BirthYear;
     public int DeathYear;
     public int Age;
     public string Name;
-    public string Origin;
+    public Origin Origin;
+
+    public string ReadDocument()
+    {
+        return String.Format("Name: {0} \nAge : {1} \nBirth: {2} \nFrom: {3}", Name, Age, BirthYear, Origin.ToString());
+    }
 }

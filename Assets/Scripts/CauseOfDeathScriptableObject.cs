@@ -4,7 +4,7 @@ using UnityEngine;
 public class CauseOfDeathScriptableObject : ScriptableObject
 {
     public string Description;
-    public Criteria[] FulfilledCriteria;
+    public CauseOfDeath[] FulfilledCriteria;
 
     public CauseOfDeathDocument GetCauseOfDeathDocument()
     {
