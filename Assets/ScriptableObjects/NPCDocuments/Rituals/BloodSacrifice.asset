@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03488914e4b1cd04e98864624bfc8c41, type: 3}
   m_Name: BloodSacrifice
   m_EditorClassIdentifier: 
-  Description: 
+  Description: Was offered as a sacrificial boon to the gods.
   FulfilledCriteria: 

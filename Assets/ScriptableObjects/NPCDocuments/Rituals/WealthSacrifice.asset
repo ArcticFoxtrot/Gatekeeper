@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03488914e4b1cd04e98864624bfc8c41, type: 3}
   m_Name: WealthSacrifice
   m_EditorClassIdentifier: 
-  Description: 
+  Description: Sacrificed some of their own wealth in the pyre.
   FulfilledCriteria: 
