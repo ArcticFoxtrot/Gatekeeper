@@ -22,6 +22,7 @@ public class GameEvent
     public const string EntryNotApproved = "EntryNotApproved";
     public const string SentToEarth = "SentToEarth";
     public const string NPCReachedDestination = "NPCReachedDestination";
+    public const string EndOfTime = "EndOfTime";
 }
 
 public static class GameEventManager
