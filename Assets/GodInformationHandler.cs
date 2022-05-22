@@ -30,7 +30,7 @@ public class GodInformationHandler : MonoBehaviour
             }
         }
     }
-
+ 
     public void ToggleGodInformationPanel()
     {
         godDescriptionGrid.SetActive(!godDescriptionGrid.activeSelf);

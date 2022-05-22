@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,6 +38,11 @@ public class God
     public void AssignCriteria(List<ICriterion> criteria)
     {
         PleasingCriteria = criteria;
+    }
+
+    public string GetGodDescription()
+    {
+        return String.Format("Name: {0} \nDescription: {1} \nCurrent Score With God: {2}", Name, Description, scoreWithGod);
     }
 }
 
