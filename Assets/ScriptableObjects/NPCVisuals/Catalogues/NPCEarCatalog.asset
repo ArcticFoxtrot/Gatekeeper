@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllEars:
   - {fileID: 21300000, guid: 7deb1d755b413ca409792309efa5a089, type: 3}
+  - {fileID: 21300000, guid: e1fca4aa1da9a87488e31baa2442ac67, type: 3}
+  - {fileID: 21300000, guid: 6551c86f5a2b80344b89dd72a3a23688, type: 3}
+  - {fileID: 21300000, guid: 1a29ac2b01a014e4d9473a8b6784b7d2, type: 3}

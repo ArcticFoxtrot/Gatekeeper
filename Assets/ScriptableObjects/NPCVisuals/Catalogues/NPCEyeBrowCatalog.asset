@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllEyeBrows:
   - {fileID: 21300000, guid: 19f5db72fa988dd4fb63477fb90baf72, type: 3}
+  - {fileID: 21300000, guid: fa8e76009f6c28645912cb6739acdff9, type: 3}
+  - {fileID: 21300000, guid: fb0abe1b0ad347545846d3381d6711df, type: 3}
+  - {fileID: 21300000, guid: 4b454bb5e7b28d343a552ee05483b534, type: 3}
