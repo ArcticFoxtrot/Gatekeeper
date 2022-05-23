@@ -7,11 +7,10 @@ public class StageManager : MonoBehaviour
     private GameObject currentNPC;
 
     [SerializeField] private NPCGenerator generator;
-    private CriteriaHandler criteriaHandler;
+    [SerializeField] private CriteriaHandler criteriaHandler;
 
     private void Start() {
         GameObject firstNPC = generator.GenerateNPC();
-        criteriaHandler = new CriteriaHandler();
         criteriaHandler.Initialize();
         currentNPC = firstNPC;
         currentNPC.GetComponent<NPC>().MoveToWindow();
@@ -27,7 +26,6 @@ public class StageManager : MonoBehaviour
 
     private void SwapToNewNPC()
     {
-        Debug.Log("Swapping NPC");
         currentNPC = generator.GenerateNPC();
         if(currentNPC.TryGetComponent<NPC>(out NPC npc))
         {
@@ -56,7 +54,7 @@ public class StageManager : MonoBehaviour
                 else if(gameEvent.EventType == GameEvent.EntryApproved)
                 {
                     npc.MoveToHeaven();
-                    criteriaHandler.HandleNPCRejection(npc);
+                    criteriaHandler.HandleNPCAccepted(npc);
                 }
                 else if(gameEvent.EventType == GameEvent.SentToEarth)
                 {

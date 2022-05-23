@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CausesOfDeath:
   - {fileID: 11400000, guid: ba7645da7e7ba6a4494a08aa9797ca18, type: 2}
+  - {fileID: 11400000, guid: 41c04fd57d0a86c41be4cc5d1037a05a, type: 2}

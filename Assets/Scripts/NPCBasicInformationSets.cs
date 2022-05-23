@@ -34,7 +34,6 @@ public struct NPCBasicInformation : IDocument
     public int Age;
     public Name Name;
     public Origin Origin;
-    public Ritual Ritual;
 
     public string ReadDocument()
     {

@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinAge: 18
   MaxAge: 110
-  Names:
-  - Antti
-  - Topi
-  Origins: 0000000001000000
+  Names: 0000000001000000
+  Origins: 000000000100000002000000090000000a000000

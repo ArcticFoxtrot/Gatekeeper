@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 
 public class NPC : MonoBehaviour 
@@ -6,12 +6,12 @@ public class NPC : MonoBehaviour
 
     public NPCBasicInformation BasicInformation;
     public CauseOfDeathDocument CauseOfDeath;
+    public RitualDocument Ritual;
 
     [SerializeField] Animator animator;
 
     public void MoveToWindow()
     {
-        Debug.Log("Moving to window!");
         animator.SetTrigger("MoveToWindow");
     }
 
@@ -35,5 +35,6 @@ public class NPC : MonoBehaviour
     {
         animator.SetTrigger("MoveToHell");
     }
+
 }
 

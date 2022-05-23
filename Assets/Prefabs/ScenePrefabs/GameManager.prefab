@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1132840354806228969}
   - component: {fileID: 1132840354806228971}
   - component: {fileID: 1132840354806228972}
+  - component: {fileID: 6548497557030831297}
+  - component: {fileID: 1559554645299370025}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -56,6 +58,7 @@ MonoBehaviour:
   mouths: {fileID: 11400000, guid: e054d98b129f7884c8fc4c4ed4ebd6e2, type: 2}
   causeOfDeathCatalog: {fileID: 11400000, guid: 65026d59de446dd47a6aaef8d9ddb992, type: 2}
   NPCBasicInformationSets: {fileID: 11400000, guid: 1a55644f27e4bff499b460dc8901899a, type: 2}
+  ritualCatalog: {fileID: 11400000, guid: ecc4e4e2a79fbbe4dab4bcbde7da7a9b, type: 2}
   availableSkinColors:
   - {r: 1, g: 0.4867577, b: 0, a: 1}
   - {r: 0.8113208, g: 0.6206169, b: 0.44010326, a: 1}
@@ -74,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generator: {fileID: 1132840354806228969}
+  criteriaHandler: {fileID: 1559554645299370025}
 --- !u!114 &1132840354806228972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,3 +92,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   godCatalog: {fileID: 11400000, guid: 66d36c3eb6affe34ab2246d50f830f4d, type: 2}
   maxCriteriaCount: 5
+--- !u!114 &6548497557030831297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132840354806228968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195d720f1da35954ea876e5ddb1b60a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+--- !u!114 &1559554645299370025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132840354806228968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8530e61d2e4253d41a6527254c6cb548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
