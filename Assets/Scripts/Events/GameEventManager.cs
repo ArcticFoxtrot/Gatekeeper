@@ -24,6 +24,7 @@ public class GameEvent
     public const string NPCReachedDestination = "NPCReachedDestination";
     public const string EndOfTime = "EndOfTime";
     public const string NewGodCreated = "NewGodCreated";
+    public const string PlayerScoreChanged = "PlayerScoreChanged";
 }
 
 public static class GameEventManager

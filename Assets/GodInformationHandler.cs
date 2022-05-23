@@ -24,7 +24,7 @@ public class GodInformationHandler : MonoBehaviour
         {
             var newInformation = GameObject.Instantiate(godDescriptionPrefab, godDescriptionGrid.transform.position, Quaternion.identity, godDescriptionGrid.transform);
             //set text
-            if(newInformation.TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI text) && sender is God god)
+            if(newInformation.TryGetComponent<TextMeshProUGUI>(out TextMeshProUGUI text) && gameEvent.Arguments[0] is God god)
             {
                 text.text = god.GetGodDescription();
             }

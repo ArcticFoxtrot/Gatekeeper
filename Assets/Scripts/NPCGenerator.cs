@@ -15,6 +15,7 @@ public class NPCGenerator : MonoBehaviour
     [Header("References to NPC information")]
     [SerializeField] private NPCCauseOfDeathCatalog causeOfDeathCatalog;
     [SerializeField] private NPCBasicInformationSets NPCBasicInformationSets;
+    [SerializeField] private NPCRitualCatalog ritualCatalog;
     [Header("NPC Skin color settings")]
     [SerializeField] private Color[] availableSkinColors;
 
@@ -37,7 +38,6 @@ public class NPCGenerator : MonoBehaviour
         {
             HeadController headController = npcObject.GetComponentInChildren<HeadController>();
             //set npc visuals
-            Debug.Log("Found NPC Component");
             Sprite hair = hairs.GetRandom();
             Sprite eyeBrow = eyeBrows.GetRandom();
             Sprite eye = eyes.GetRandom();
@@ -99,6 +99,11 @@ public class NPCGenerator : MonoBehaviour
             if(String.IsNullOrEmpty(npc.BasicInformation.Name.ToString()))
             {
                 Debug.LogError("basic info is null");
+            }
+            npc.Ritual = ritualCatalog.GetRandom().GetRitualDocument();
+            if(npc.Ritual == null)
+            {
+                Debug.LogError("ritual document is null");
             }
         }
     }

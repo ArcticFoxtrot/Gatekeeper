@@ -44,5 +44,10 @@ public class God
     {
         return String.Format("Name: {0} \nDescription: {1} \nCurrent Score With God: {2}", Name, Description, scoreWithGod);
     }
+
+    public int GetScoreWithGod()
+    {
+        return scoreWithGod;
+    }
 }
 

@@ -15,7 +15,7 @@ public class GodGenerator : MonoBehaviour
     public God GenerateGod(int index)
     {
         God newGod = godCatalog.GetGodWithIndex(index);
-        GameEventManager.Send(new GameEvent(newGod, GameEvent.NewGodCreated));
+        GameEventManager.Send(new GameEvent(this, GameEvent.NewGodCreated, new object[]{newGod}));
         return newGod;
     }
 
