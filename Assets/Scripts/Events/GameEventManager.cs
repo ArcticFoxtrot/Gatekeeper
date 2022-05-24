@@ -25,6 +25,7 @@ public class GameEvent
     public const string EndOfTime = "EndOfTime";
     public const string NewGodCreated = "NewGodCreated";
     public const string PlayerScoreChanged = "PlayerScoreChanged";
+    public const string OfficialCriteriaAdded = "OfficialCriteriaAdded";
 }
 
 public static class GameEventManager
