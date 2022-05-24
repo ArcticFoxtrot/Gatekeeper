@@ -47,6 +47,7 @@ public enum Ritual
 public interface ICriterion
 {
     bool CheckForMatches(NPC npc);
+    string GetDescription();
 }
 
 public class AgeCriterion : ICriterion
@@ -70,6 +71,12 @@ public class AgeCriterion : ICriterion
 
         return false;
     }
+
+    public string GetDescription()
+    {
+        string retVal = String.Format("Age between {0} and {1}", minAge, maxAge);
+        return retVal;
+    }
 }
 
 public class NameCriterion : ICriterion
@@ -89,6 +96,11 @@ public class NameCriterion : ICriterion
         }
 
         return false;
+    }
+
+    public string GetDescription()
+    {
+        return String.Format("Deceased is called {0}", name.ToString());
     }
 }
 
@@ -110,6 +122,11 @@ public class CauseOfDeathCriterion : ICriterion
 
         else return false;
     }
+
+    public string GetDescription()
+    {
+        return String.Format("Died by {0}", Cause.ToString());
+    }
 }
 
 public class OriginCriterion : ICriterion
@@ -130,6 +147,11 @@ public class OriginCriterion : ICriterion
 
         return false;
     }
+
+    public string GetDescription()
+    {
+        return String.Format("From :{0}", Origin);
+    }
 }
 
 public class RitualCriterion : ICriterion
@@ -148,6 +170,11 @@ public class RitualCriterion : ICriterion
             return true;
         }
         return false;
+    }
+
+    public string GetDescription()
+    {
+        return String.Format("Ritual completed: {0}", Ritual.ToString());
     }
 }
 

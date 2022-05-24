@@ -55,6 +55,7 @@ public class CriteriaHandler : MonoBehaviour
     {
         Debug.Log("Added to official criteria: " + newCriteria.ToString());
         officialAcceptedCriteria.Add(newCriteria);
+        GameEventManager.Send(new GameEvent(this, GameEvent.OfficialCriteriaAdded, new object[]{officialAcceptedCriteria}));
     }
 
     public void HandleNPCRejection(NPC npc)

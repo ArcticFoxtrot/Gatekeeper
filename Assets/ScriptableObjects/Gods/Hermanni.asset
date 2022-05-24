@@ -20,4 +20,4 @@ MonoBehaviour:
   AgeCriteriaMin: 20
   AgeCriteriaMax: 100
   NameCriteria: 00000000
-  RitualCriteria: 
+  RitualCriteria: 0000000001000000
