@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Round2
   m_EditorClassIdentifier: 
   RoundIndex: 1
-  RoundLength: 25
+  RoundLength: 45
   RoundDescription: Second round
+  RoundNumberOfPeopleInQueue: 15
