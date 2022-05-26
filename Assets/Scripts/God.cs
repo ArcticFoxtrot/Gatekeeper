@@ -16,6 +16,7 @@ public class God
         this.Description = description;
         this.image = image;
         this.scoreWithGod = startingScore;
+        
     }
 
     public List<ICriterion> PleasingCriteria;
@@ -42,12 +43,18 @@ public class God
 
     public string GetGodDescription()
     {
-        return String.Format("Name: {0} \nDescription: {1} \nCurrent Score With God: {2}", Name, Description, scoreWithGod);
+        return String.Format("Name: {0} \nDescription: {1}", Name, Description);
     }
 
     public int GetScoreWithGod()
     {
         return scoreWithGod;
+    }
+
+    public void AddToScoreWithGod(int toAdd)
+    {
+        scoreWithGod += toAdd; // this could have a multiplier based on how volatile the god is in their opinions
+        GameEventManager.Send(new GameEvent(this, GameEvent.ScoreChangedForGod,new object[]{this} ));
     }
 }
 

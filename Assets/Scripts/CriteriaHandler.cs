@@ -8,7 +8,7 @@ public class CriteriaHandler : MonoBehaviour
     //manages what criteria is currently accepted
     private HashSet<ICriterion> officialAcceptedCriteria = new HashSet<ICriterion>();
     private Dictionary<ICriterion, HashSet<God>> acceptedCriteriaForGods = new Dictionary<ICriterion, HashSet<God>>();
-    private Dictionary<string, int> pointsByGod = new Dictionary<string, int>();
+    //private Dictionary<God, int> pointsByGod = new Dictionary<God, int>();
 
     private void OnEnable() {
         GameEventManager.OnGameEvent += HandleGameEvent;
@@ -39,7 +39,6 @@ public class CriteriaHandler : MonoBehaviour
                 }
             }
             int randomIndex = UnityEngine.Random.Range(0, newGod.PleasingCriteria.Count);
-            pointsByGod.TryAdd(newGod.Name, newGod.GetScoreWithGod());
         }
         if(gameEvent.EventType == GameEvent.RoundStarted)
         {
@@ -113,9 +112,9 @@ public class CriteriaHandler : MonoBehaviour
             {
                 foreach(var god in acceptedCriteriaForGods[criterionKey.Key])
                 {
-                    pointsByGod[god.Name]--;
+                    god.AddToScoreWithGod(-1);
                 }
-
+                
             }
         }
     }
@@ -139,9 +138,8 @@ public class CriteriaHandler : MonoBehaviour
             {
                 foreach(var god in acceptedCriteriaForGods[criterionKey.Key])
                 {
-                    pointsByGod[god.Name]++;
+                    god.AddToScoreWithGod(1);;
                 }
-
             }
         }
     }
@@ -163,16 +161,17 @@ public class CriteriaHandler : MonoBehaviour
             {
                 foreach(var god in acceptedCriteriaForGods[criterionKey.Key])
                 {
-                    pointsByGod[god.Name]++;
+                    god.AddToScoreWithGod(1);
                 }
-
+                
             }
             else
             {
                 foreach(var god in acceptedCriteriaForGods[criterionKey.Key])
                 {
-                    pointsByGod[god.Name]--;
+                    god.AddToScoreWithGod(-1);
                 }
+                
             }
         }
     }
