@@ -12,10 +12,26 @@ public class TimeKeeper : MonoBehaviour
     public TMP_Text timerText;
     
 
-public void Awake()
-{
-    ResumeTime();
+private void OnEnable() {
+    GameEventManager.OnGameEvent += HandleGameEvent;
 }
+
+private void OnDisable() {
+    GameEventManager.OnGameEvent -= HandleGameEvent;
+}
+
+private void HandleGameEvent(object sender, GameEvent gameEvent)
+{
+    if(gameEvent.EventType == GameEvent.RoundStarted)
+    {
+        if(gameEvent.Arguments[1] is float roundLength)
+        {
+            TimeLeft = roundLength;
+        }
+        ResumeTime();
+    }
+}
+
 
 public void Update()
 {

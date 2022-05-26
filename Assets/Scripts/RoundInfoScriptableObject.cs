@@ -4,6 +4,6 @@ using UnityEngine;
 public class RoundInfoScriptableObject : ScriptableObject
 {
     public int RoundIndex;
-    public int RoundLength;
+    public float RoundLength;
     public string RoundDescription;
 }
