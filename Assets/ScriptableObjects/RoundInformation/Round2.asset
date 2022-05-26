@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a737d5a7d802bf043a2411b465546cdf, type: 3}
-  m_Name: RoundInfoCatalog
+  m_Script: {fileID: 11500000, guid: 153d025898a4c544d9a64cb0f640426b, type: 3}
+  m_Name: Round2
   m_EditorClassIdentifier: 
-  rounds:
-  - {fileID: 11400000, guid: 00ff545a76e187247965c580a7778b67, type: 2}
-  - {fileID: 11400000, guid: adc104a0ea6378944b3fb01bbce1550d, type: 2}
+  RoundIndex: 1
+  RoundLength: 25
+  RoundDescription: Second round

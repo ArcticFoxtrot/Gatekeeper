@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Round1
   m_EditorClassIdentifier: 
   RoundIndex: 1
-  RoundLength: 10
+  RoundLength: 30
   RoundDescription: First round

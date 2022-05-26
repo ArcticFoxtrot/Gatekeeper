@@ -7,7 +7,7 @@ public class RoundInfoCatalog : ScriptableObject
 
     public RoundInfoScriptableObject GetRoundInfo(int roundIndex)
     {
-        if(rounds.Length < roundIndex)
+        if(rounds.Length - 1 < roundIndex)
         {
             return rounds[0];
         }

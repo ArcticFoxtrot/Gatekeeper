@@ -373,7 +373,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0daec1f0fb96844ca905cce7dbf9d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundInfoCatalog: {fileID: 0}
+  roundInfoCatalog: {fileID: 11400000, guid: b760acb9351fe8f4299ad4e4c6580e71, type: 2}
+  startFromRound: 0
 --- !u!1001 &3195066269291510551
 PrefabInstance:
   m_ObjectHideFlags: 0

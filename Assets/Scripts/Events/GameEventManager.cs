@@ -27,6 +27,7 @@ public class GameEvent
     public const string PlayerScoreChanged = "PlayerScoreChanged";
     public const string OfficialCriteriaAdded = "OfficialCriteriaAdded";
     public const string RoundStarted = "RoundStarted";
+    public const string StartNewShift = "StartNewShift";
 }
 
 public static class GameEventManager
