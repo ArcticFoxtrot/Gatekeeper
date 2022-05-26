@@ -33,8 +33,12 @@ public class NPCInformationHandler : MonoBehaviour
             }
             
         }
-
-        if(gameEvent.EventType == GameEvent.EntryApproved || gameEvent.EventType == GameEvent.EntryNotApproved || gameEvent.EventType == GameEvent.SentToEarth)
+        else if(gameEvent.EventType == GameEvent.EntryApproved || gameEvent.EventType == GameEvent.EntryNotApproved || gameEvent.EventType == GameEvent.SentToEarth)
+        {
+            basicInfoText.text = string.Empty;
+            causeOfDeath.text = string.Empty;
+        }
+        else if(gameEvent.EventType == GameEvent.EndOfTime)
         {
             basicInfoText.text = string.Empty;
             causeOfDeath.text = string.Empty;

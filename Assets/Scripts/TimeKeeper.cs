@@ -30,6 +30,10 @@ private void HandleGameEvent(object sender, GameEvent gameEvent)
         }
         ResumeTime();
     }
+    if(gameEvent.EventType == GameEvent.EndOfTime && gameEvent.Sender as GameObject != this)
+    {   
+        StopTime();
+    }
 }
 
 

@@ -37,7 +37,7 @@ public class RoundManager : MonoBehaviour
         //send round info to event manager for listeners
         RoundInfoScriptableObject roundInfo = roundInfoCatalog.GetRoundInfo(startFromRound);
         float roundLength = roundInfo.RoundLength;
-        GameEventManager.Send(new GameEvent(this, GameEvent.RoundStarted, new object[]{currentRound, roundLength}));
+        GameEventManager.Send(new GameEvent(this, GameEvent.RoundStarted, new object[]{currentRound, roundLength, roundInfo.RoundNumberOfPeopleInQueue}));
     }
 
     public void StartNextRound()
@@ -46,7 +46,7 @@ public class RoundManager : MonoBehaviour
         currentRound ++;
         RoundInfoScriptableObject roundInfo = roundInfoCatalog.GetRoundInfo(currentRound);
         float roundLength = roundInfo.RoundLength;
-        GameEventManager.Send(new GameEvent(this, GameEvent.RoundStarted, new object[]{currentRound, roundLength}));
+        GameEventManager.Send(new GameEvent(this, GameEvent.RoundStarted, new object[]{currentRound, roundLength, roundInfo.RoundNumberOfPeopleInQueue}));
     }
 
 

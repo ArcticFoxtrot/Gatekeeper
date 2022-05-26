@@ -9,7 +9,8 @@ public class StageManager : MonoBehaviour
     [SerializeField] private NPCGenerator generator;
     [SerializeField] private CriteriaHandler criteriaHandler;
 
-    private void Start() {
+    private void Initialize()
+    {
         GameObject firstNPC = generator.GenerateNPC();
         criteriaHandler.Initialize();
         currentNPC = firstNPC;
@@ -27,9 +28,14 @@ public class StageManager : MonoBehaviour
     private void SwapToNewNPC()
     {
         currentNPC = generator.GenerateNPC();
-        if(currentNPC.TryGetComponent<NPC>(out NPC npc))
+        if(currentNPC != null && currentNPC.TryGetComponent<NPC>(out NPC npc))
         {
             npc.MoveToWindow();
+        }
+        else
+        {
+            //inform that round ended
+            GameEventManager.Send(new GameEvent(this, GameEvent.EndOfTime));
         }
     }
 
@@ -64,6 +70,20 @@ public class StageManager : MonoBehaviour
             }
 
             SwapToNewNPC();
+        }
+        else if(gameEvent.EventType == GameEvent.EndOfTime)
+        {
+            //clear current NPC
+            GameObject.Destroy(currentNPC);
+        }
+         if(gameEvent.EventType == GameEvent.RoundStarted)
+        {
+            if(gameEvent.Arguments[2] is int maxNumber)
+            {
+                Debug.LogWarning("New shift started, started spawning new NPCs with max amount" + maxNumber);
+                generator.SetRoundMaximum(maxNumber);
+                Initialize();
+            }
         }
     }
 

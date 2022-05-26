@@ -22,6 +22,9 @@ public class NPCGenerator : MonoBehaviour
 
     private GameObject currentNPC;
 
+    private int generatedNPCs = 0;
+    private int maximumNPCsForCurrentRound = 1;
+
     private void OnEnable() {
         GameEventManager.OnGameEvent += HandleGameEvent;
     }
@@ -32,57 +35,70 @@ public class NPCGenerator : MonoBehaviour
 
     public GameObject GenerateNPC()
     {
-        GameObject npcObject = GameObject.Instantiate(heads.GetRandom().HeadPrefab, this.transform.position, Quaternion.identity);
-
-        if(npcObject.TryGetComponent(out NPC npc))
+        if(generatedNPCs < maximumNPCsForCurrentRound)
         {
-            HeadController headController = npcObject.GetComponentInChildren<HeadController>();
-            //set npc visuals
-            Sprite hair = hairs.GetRandom();
-            Sprite eyeBrow = eyeBrows.GetRandom();
-            Sprite eye = eyes.GetRandom();
-            Sprite nose = noses.GetRandom();
-            Sprite ear = ears.GetRandom();
-            Sprite mouth = mouths.GetRandom();
+            GameObject npcObject = GameObject.Instantiate(heads.GetRandom().HeadPrefab, this.transform.position, Quaternion.identity);
 
-            //set positions for sprites on head
-            //hair
-            headController.Hair.sprite = hair;
-            //eyebrows
-            headController.LeftEyeBrow.sprite = eyeBrow;
-            headController.RightEyeBrow.sprite = eyeBrow;
-            headController.LeftEyeBrow.flipX = true;
+            if(npcObject.TryGetComponent(out NPC npc))
+            {
+                HeadController headController = npcObject.GetComponentInChildren<HeadController>();
+                //set npc visuals
+                Sprite hair = hairs.GetRandom();
+                Sprite eyeBrow = eyeBrows.GetRandom();
+                Sprite eye = eyes.GetRandom();
+                Sprite nose = noses.GetRandom();
+                Sprite ear = ears.GetRandom();
+                Sprite mouth = mouths.GetRandom();
 
-            //eyes
-            headController.LeftEye.sprite = eye;
-            headController.LeftEye.flipX = true;
-            headController.RightEye.sprite = eye;
-            
-            //nose
-            headController.Nose.sprite = nose;
+                //set positions for sprites on head
+                //hair
+                headController.Hair.sprite = hair;
+                //eyebrows
+                headController.LeftEyeBrow.sprite = eyeBrow;
+                headController.RightEyeBrow.sprite = eyeBrow;
+                headController.LeftEyeBrow.flipX = true;
 
-            //ears
-            headController.LeftEar.sprite = ear;
-            headController.LeftEar.flipX = true;
-            headController.RightEar.sprite = ear;
-            
-            //mouth
-            headController.Mouth.sprite = mouth;
+                //eyes
+                headController.LeftEye.sprite = eye;
+                headController.LeftEye.flipX = true;
+                headController.RightEye.sprite = eye;
 
-            //apply random skin color to head, ears and nose
-            int colorIndex = UnityEngine.Random.Range(0, availableSkinColors.Length);
-            ApplyColor(headController.GetComponent<SpriteRenderer>(), availableSkinColors[colorIndex]);
-            ApplyColor(headController.LeftEar, availableSkinColors[colorIndex]);
-            ApplyColor(headController.RightEar, availableSkinColors[colorIndex]);
-            ApplyColor(headController.Nose, availableSkinColors[colorIndex]);
-               
+                //nose
+                headController.Nose.sprite = nose;
+
+                //ears
+                headController.LeftEar.sprite = ear;
+                headController.LeftEar.flipX = true;
+                headController.RightEar.sprite = ear;
+
+                //mouth
+                headController.Mouth.sprite = mouth;
+
+                //apply random skin color to head, ears and nose
+                int colorIndex = UnityEngine.Random.Range(0, availableSkinColors.Length);
+                ApplyColor(headController.GetComponent<SpriteRenderer>(), availableSkinColors[colorIndex]);
+                ApplyColor(headController.LeftEar, availableSkinColors[colorIndex]);
+                ApplyColor(headController.RightEar, availableSkinColors[colorIndex]);
+                ApplyColor(headController.Nose, availableSkinColors[colorIndex]);
+
+            }
+
+            //setup NPC information
+            SetupInformation(npcObject);
+            GameEventManager.Send(new GameEvent(this, GameEvent.NPCCreated, new object[]{npcObject}));
+            generatedNPCs++;
+            return npcObject;
         }
+        else
+        {
+            return null;
+        } 
 
-        //setup NPC information
-        SetupInformation(npcObject);
-        GameEventManager.Send(new GameEvent(this, GameEvent.NPCCreated, new object[]{npcObject}));
-        return npcObject;
+    }
 
+    public void SetRoundMaximum(int maxNumber)
+    {
+        maximumNPCsForCurrentRound = maxNumber;
     }
 
     private void SetupInformation(GameObject npcObject)
@@ -119,7 +135,7 @@ public class NPCGenerator : MonoBehaviour
 
     private void HandleGameEvent(object sender, GameEvent gameEvent)
     {
-
+       
     }
     
 }
