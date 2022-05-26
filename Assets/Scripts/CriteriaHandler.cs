@@ -40,8 +40,44 @@ public class CriteriaHandler : MonoBehaviour
             }
             int randomIndex = UnityEngine.Random.Range(0, newGod.PleasingCriteria.Count);
             pointsByGod.TryAdd(newGod.Name, newGod.GetScoreWithGod());
-            AddOfficialCriteria(newGod.PleasingCriteria[randomIndex]);
         }
+        if(gameEvent.EventType == GameEvent.RoundStarted)
+        {
+           
+            
+            if(gameEvent.Arguments[3] is int numberOfCriteria)
+            {
+                Debug.LogWarning("Creating new acceptance criteria and number is !" + numberOfCriteria);
+                List<ICriterion> criteria = new List<ICriterion>(acceptedCriteriaForGods.Keys);
+                officialAcceptedCriteria.Clear();
+                if(criteria.Count > 0)
+                {
+                    while(officialAcceptedCriteria.Count < numberOfCriteria)
+                    {
+                        //for each god get a random criteria, but no duplicates
+                        int randomIndex = UnityEngine.Random.Range(0, acceptedCriteriaForGods.Count);
+                        //if criterion is already in the set of accepted criteria, try again
+                        if(officialAcceptedCriteria.Contains(criteria[randomIndex]))
+                        {
+                            continue;
+                        }
+
+                        officialAcceptedCriteria.Add(criteria[randomIndex]);
+                    }
+                    
+                }
+                else
+                {
+                    Debug.LogWarning("Dictionary of criteria was empty!");
+                }
+                
+                GameEventManager.Send(new GameEvent(this, GameEvent.OfficialCriteriaAdded, new object[]{officialAcceptedCriteria}));
+            }
+            
+            
+        }
+
+
     }
 
 

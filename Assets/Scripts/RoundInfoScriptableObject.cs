@@ -7,4 +7,5 @@ public class RoundInfoScriptableObject : ScriptableObject
     public float RoundLength;
     public string RoundDescription;
     public int RoundNumberOfPeopleInQueue;
+    public int RoundNumberOfOfficialCriteria;
 }

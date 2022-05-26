@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9ccdfe54c2ee254a854740222ebf3b5, type: 3}
+  m_Name: Jeebus
+  m_EditorClassIdentifier: 
+  Name: Jeebus
+  Image: {fileID: 21300000, guid: 29f796e3e7c7c874ab6bdfef376d35c8, type: 3}
+  Description: Jeebus, like Jeesus but more bus
+  CauseOfDeathCriteria: 0100000000000000
+  OriginCriteria: 0a0000000800000001000000
+  AgeCriteriaMin: 10
+  AgeCriteriaMax: 100
+  NameCriteria: 01000000
+  RitualCriteria: 020000000400000005000000

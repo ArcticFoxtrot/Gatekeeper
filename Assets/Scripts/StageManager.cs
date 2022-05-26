@@ -80,7 +80,6 @@ public class StageManager : MonoBehaviour
         {
             if(gameEvent.Arguments[2] is int maxNumber)
             {
-                Debug.LogWarning("New shift started, started spawning new NPCs with max amount" + maxNumber);
                 generator.SetRoundMaximum(maxNumber);
                 Initialize();
             }
