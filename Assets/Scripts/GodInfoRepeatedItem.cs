@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System;
+
 public class GodInfoRepeatedItem : MonoBehaviour 
 {
     
@@ -12,7 +14,9 @@ public class GodInfoRepeatedItem : MonoBehaviour
     public void Initialize(God god)
     {
         Owner = god;
+        Debug.Log("Bugs: Owner name is " + Owner.Name);
         godDescriptionText.text = god.GetGodDescription();
         godScoreText.text = god.GetScoreWithGod().ToString();
     }
+
 }

@@ -10,6 +10,8 @@ public class GodInformationHandler : MonoBehaviour
     [SerializeField] private GameObject godDescriptionPrefab;
     [SerializeField] private GameObject godDescriptionGrid;
 
+    private Dictionary<string, GodInfoRepeatedItem> godInfos = new Dictionary<string, GodInfoRepeatedItem>();
+
     private void OnEnable() {
         GameEventManager.OnGameEvent += HandleGameEvent;
     }
@@ -27,27 +29,19 @@ public class GodInformationHandler : MonoBehaviour
             if(newInformation.TryGetComponent<GodInfoRepeatedItem>(out GodInfoRepeatedItem info) && gameEvent.Arguments[0] is God god)
             {
                 info.Initialize(god);
+                godInfos.TryAdd(god.Name, info);
             }
         }
-        else if(gameEvent.EventType == GameEvent.ScoreChangedForGod)
+        if(gameEvent.EventType == GameEvent.ScoreChangedForGod)
         {
-            God changedForGod = gameEvent.Arguments[0] as God;
-            GodInfoRepeatedItem infoForGod = null;
-            //find the info repeated item belonging to this god
-            foreach(Transform child in godDescriptionGrid.transform)
+            if(gameEvent.Arguments[0] is God god)
             {
-                if(child.gameObject.TryGetComponent<GodInfoRepeatedItem>(out GodInfoRepeatedItem info))
-                {
-                    if(info.Owner.Name == changedForGod.Name)
-                    {
-                        infoForGod = info;
-                        break;
-                    }
-                }
+                //get value from dict
+                GodInfoRepeatedItem item = godInfos[god.Name];
+                item.Initialize(god);
             }
-            infoForGod.Initialize(changedForGod);
-        }  
-        
+            
+        }
     }
  
     public void ToggleGodInformationPanel()
