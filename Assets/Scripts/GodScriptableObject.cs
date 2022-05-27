@@ -5,6 +5,7 @@ public class GodScriptableObject : ScriptableObject
     public string Name;
     public Sprite Image;
     public string Description;
+    public int MinPointsBeforeGameOver = -100;
 
     public CauseOfDeath[] CauseOfDeathCriteria;
     public Origin[] OriginCriteria;

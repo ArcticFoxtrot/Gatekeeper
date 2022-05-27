@@ -7,6 +7,12 @@ public enum CauseOfDeath
     KilledByAnimal,
     RitualSacrifice,
     NaturalCauses,
+    DiedInAFire,
+    Crucified,
+    Murdered,
+    Disease,
+    OverEating,
+    FellFromHigh,
     None
 }
 
@@ -28,8 +34,21 @@ public enum Origin
 
 public enum Name
 {
-    Topi,
-    Antti
+    Tophos,
+    Andreas,
+    Phobos,
+    Pho,
+    Myrtle,
+    Olive,
+    Pune,
+    Homer,
+    Traccus,
+    Wyl,
+    Pim,
+    Wal,
+    Nym,
+    Eru
+
 }
 
 public enum Ritual

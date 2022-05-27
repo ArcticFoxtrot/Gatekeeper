@@ -15,7 +15,8 @@ MonoBehaviour:
   Name: Jeebus
   Image: {fileID: 21300000, guid: 29f796e3e7c7c874ab6bdfef376d35c8, type: 3}
   Description: Jeebus, like Jeesus but more bus
-  CauseOfDeathCriteria: 0100000000000000
+  MinPointsBeforeGameOver: -100
+  CauseOfDeathCriteria: 010000000000000004000000
   OriginCriteria: 0a0000000800000001000000
   AgeCriteriaMin: 10
   AgeCriteriaMax: 100

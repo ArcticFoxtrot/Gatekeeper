@@ -39,8 +39,15 @@ public class RoundManager : MonoBehaviour
         //this method could be called from some button in game, or this could be handled by an event too?
         currentRound ++;
         RoundInfoScriptableObject roundInfo = roundInfoCatalog.GetRoundInfo(currentRound);
-        float roundLength = roundInfo.RoundLength;
-        GameEventManager.Send(new GameEvent(this, GameEvent.RoundStarted, new object[]{currentRound, roundLength, roundInfo.RoundNumberOfPeopleInQueue, roundInfo.RoundNumberOfOfficialCriteria}));
+        if(roundInfo != null)
+        {
+            float roundLength = roundInfo.RoundLength;
+            GameEventManager.Send(new GameEvent(this, GameEvent.RoundStarted, new object[]{currentRound, roundLength, roundInfo.RoundNumberOfPeopleInQueue, roundInfo.RoundNumberOfOfficialCriteria}));
+        }
+        else
+        {
+            GameEventManager.Send(new GameEvent(this, GameEvent.GameEnded));
+        }
     }
 
 
