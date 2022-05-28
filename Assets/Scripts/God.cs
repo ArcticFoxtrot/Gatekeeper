@@ -21,9 +21,6 @@ public class God
 
     public List<ICriterion> PleasingCriteria;
 
-    //god only knows what criteria pleases it
-    //list<Criteria> pleasingCriteria
-
     //method that checks if handled NPC fulfills any criteria
     public void CheckCriteria(NPC npc, int multiplier)
     {
@@ -43,7 +40,7 @@ public class God
 
     public string GetGodDescription()
     {
-        return String.Format("Name: {0} \nDescription: {1}", Name, Description);
+        return String.Format("{0}", Description);
     }
 
     public int GetScoreWithGod()

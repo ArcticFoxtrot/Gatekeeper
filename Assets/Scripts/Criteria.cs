@@ -8,8 +8,8 @@ public enum CauseOfDeath
     RitualSacrifice,
     NaturalCauses,
     DiedInAFire,
-    Crucified,
-    Murdered,
+    Crucifixion,
+    Murder,
     Disease,
     OverEating,
     FellFromHigh,
@@ -169,7 +169,7 @@ public class OriginCriterion : ICriterion
 
     public string GetDescription()
     {
-        return String.Format("From :{0}", Origin);
+        return String.Format("From: {0}", Origin);
     }
 }
 

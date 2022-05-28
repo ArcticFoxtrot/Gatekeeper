@@ -16,4 +16,4 @@ MonoBehaviour:
   RoundLength: 45
   RoundDescription: Second round
   RoundNumberOfPeopleInQueue: 15
-  RoundNumberOfOfficialCriteria: 1
+  RoundNumberOfOfficialCriteria: 6

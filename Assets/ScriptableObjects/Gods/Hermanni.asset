@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Hermann
   Image: {fileID: 21300000, guid: 29f796e3e7c7c874ab6bdfef376d35c8, type: 3}
-  Description: 'The '
+  Description: Hermann, The Fire God
   MinPointsBeforeGameOver: -100
-  CauseOfDeathCriteria: 0100000000000000
-  OriginCriteria: 0a00000000000000030000000a000000
+  CauseOfDeathCriteria: 0100000003000000
+  OriginCriteria: 0a00000003000000
   AgeCriteriaMin: 20
   AgeCriteriaMax: 100
   NameCriteria: 00000000

@@ -14,7 +14,11 @@ public class StageManager : MonoBehaviour
         GameObject firstNPC = generator.GenerateNPC();
         criteriaHandler.Initialize();
         currentNPC = firstNPC;
-        currentNPC.GetComponent<NPC>().MoveToWindow();
+        if(currentNPC != null)
+        {
+            currentNPC.GetComponent<NPC>().MoveToWindow();
+        }
+        
     }
 
     private void OnEnable() {

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sandaali
   Image: {fileID: 21300000, guid: 29f796e3e7c7c874ab6bdfef376d35c8, type: 3}
-  Description: Sandaalilapsonen
-  CauseOfDeathCriteria: 0200000001000000
-  OriginCriteria: 050000000400000000000000
-  AgeCriteriaMin: 40
-  AgeCriteriaMax: 80
+  Description: Sandaali, the many-faced goddess of footwear
+  MinPointsBeforeGameOver: -100
+  CauseOfDeathCriteria: 0200000006000000
+  OriginCriteria: 0500000004000000
+  AgeCriteriaMin: 20
+  AgeCriteriaMax: 40
   NameCriteria: 00000000
   RitualCriteria: 0500000004000000
