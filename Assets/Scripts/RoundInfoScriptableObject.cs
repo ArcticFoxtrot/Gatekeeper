@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RoundInfoScriptableObject", menuName = "ScriptableObjects/Round Information/RoundInfoScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "RoundInfoScriptableObject", menuName = "ScriptableObjects/RoundInformation/RoundInfoScriptableObject", order = 1)]
 public class RoundInfoScriptableObject : ScriptableObject
 {
     public int RoundIndex;

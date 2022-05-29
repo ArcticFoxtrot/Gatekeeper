@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c55a6c47f2c2e1e49898880fcb92dc52, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -356,6 +356,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!20 &1407832622 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3195066268362921572, guid: decd13ce7981df34f964db56b4ae284d, type: 3}
+  m_PrefabInstance: {fileID: 3195066269291510551}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2085763178
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +604,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1507447010049270140, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507447010049270140, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507447010049270140, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507447010049270140, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494018637575353971, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 31.746994
+      objectReference: {fileID: 0}
     - target: {fileID: 4862060424143346372, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
       propertyPath: roundManager
       value: 
@@ -807,6 +832,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6283821574888816643, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1407832622}
+    - target: {fileID: 6283821574888816643, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283821574888816643, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6283821574888816644, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
       propertyPath: m_Name
       value: UICanvas
@@ -858,6 +895,14 @@ PrefabInstance:
     - target: {fileID: 6397577491293196300, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592959909114607877, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349813368621138883, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.292999
       objectReference: {fileID: 0}
     - target: {fileID: 9074795527161537139, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
       propertyPath: m_AnchorMax.y
