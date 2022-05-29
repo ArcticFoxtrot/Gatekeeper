@@ -25,6 +25,7 @@ public class GodInformationHandler : MonoBehaviour
         if(gameEvent.EventType == GameEvent.NewGodCreated)
         {
             var newInformation = GameObject.Instantiate(godDescriptionPrefab, godDescriptionGrid.transform.position, Quaternion.identity, godDescriptionGrid.transform);
+            newInformation.transform.SetParent(godDescriptionGrid.transform);
             //initialize prefab texts
             if(newInformation.TryGetComponent<GodInfoRepeatedItem>(out GodInfoRepeatedItem info) && gameEvent.Arguments[0] is God god)
             {
