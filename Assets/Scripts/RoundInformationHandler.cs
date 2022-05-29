@@ -3,15 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RoundInformationHandler : MonoBehaviour
 {
     [SerializeField] private GameObject roundEndInfoPanel;
+    [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private TextMeshProUGUI processedNPCsText;
     [SerializeField] private TextMeshProUGUI criteriaFollowedText;
     [SerializeField] private TextMeshProUGUI leastPleasedGodText;
     [SerializeField] private TextMeshProUGUI mostPleasedGodText;
     [SerializeField] private TextMeshProUGUI playerRankText;
+    [SerializeField] private Sprite gameOverSprite;
+    [SerializeField] private GameObject gameOverButton;
+    [SerializeField] private GameObject nextShiftButton;
+    [SerializeField] private RoundManager roundManager;
 
     private int processedNPCs = 0;
     private int timesOfficialCriteriaFollowed = 0;
@@ -25,8 +32,15 @@ public class RoundInformationHandler : MonoBehaviour
 
     private void HandleGameEvent(object sender, GameEvent gameEvent)
     {
-        if(gameEvent.EventType == GameEvent.EndOfTime)
+        if(gameEvent.EventType == GameEvent.EndOfTime || gameEvent.EventType == GameEvent.GameEnded)
         {
+            if(gameEvent.EventType == GameEvent.GameEnded || roundManager.maxRoundsToPlay <= roundManager.CurrentRound + 1)
+            {
+                roundEndInfoPanel.GetComponent<Image>().sprite = gameOverSprite;
+                gameOverText.text = "The game has ended\nYour performance in your last shift: ";
+                gameOverButton.SetActive(true);
+                nextShiftButton.SetActive(false);
+            }
             roundEndInfoPanel.SetActive(true);
             GatherRoundEndInformation();
         }
@@ -82,6 +96,12 @@ public class RoundInformationHandler : MonoBehaviour
         timesOfficialCriteriaFollowed = 0;
         roundEndInfoPanel.SetActive(false);
     }
+
+    public void OnRestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
 }
 

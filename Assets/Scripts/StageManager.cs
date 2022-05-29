@@ -26,7 +26,7 @@ public class StageManager : MonoBehaviour
     }
 
     private void OnDisable() {
-        GameEventManager.OnGameEvent += HandleGameEvent;
+        GameEventManager.OnGameEvent -= HandleGameEvent;
     }
 
     private void SwapToNewNPC()
@@ -54,6 +54,10 @@ public class StageManager : MonoBehaviour
         }
         else if(gameEvent.EventType == GameEvent.EntryApproved || gameEvent.EventType == GameEvent.EntryNotApproved || gameEvent.EventType == GameEvent.SentToEarth)
         {
+            if(currentNPC == null)
+            {
+                return;
+            }
             if(currentNPC.TryGetComponent<NPC>(out NPC npc))
             {
                 if(gameEvent.EventType == GameEvent.EntryNotApproved)
@@ -80,12 +84,12 @@ public class StageManager : MonoBehaviour
             //clear current NPC
             GameObject.Destroy(currentNPC);
         }
-         if(gameEvent.EventType == GameEvent.RoundStarted)
+        if(gameEvent.EventType == GameEvent.RoundStarted)
         {
             if(gameEvent.Arguments[2] is int maxNumber)
             {
-                generator.SetRoundMaximum(maxNumber);
-                Initialize();
+                generator.ResetRoundWithMaximum(maxNumber);
+                SwapToNewNPC();
             }
         }
     }

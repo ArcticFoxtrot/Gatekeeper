@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Embalmed
   m_EditorClassIdentifier: 
   Description: Was hollowed out and stuffed, but in a ritual way.
-  FulfilledCriteria: 
+  FulfilledCriteria: 04000000

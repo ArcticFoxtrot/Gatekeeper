@@ -9,6 +9,7 @@ public class NPCInformationHandler : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI basicInfoText;
     [SerializeField] private TextMeshProUGUI causeOfDeath;
+    [SerializeField] private TextMeshProUGUI completedRituals;
 
 
     private void OnEnable() {
@@ -29,7 +30,8 @@ public class NPCInformationHandler : MonoBehaviour
             {
                 string basicInfo = npc.BasicInformation.ReadDocument();
                 basicInfoText.text = basicInfo;
-                causeOfDeath.text = String.Format("Cause of Death: " + npc.CauseOfDeath.ReadDocument());
+                causeOfDeath.text = String.Format(npc.CauseOfDeath.ReadDocument());
+                completedRituals.text = npc.Ritual.ReadDocument();
             }
             
         }
@@ -37,11 +39,13 @@ public class NPCInformationHandler : MonoBehaviour
         {
             basicInfoText.text = string.Empty;
             causeOfDeath.text = string.Empty;
+            completedRituals.text = string.Empty;
         }
         else if(gameEvent.EventType == GameEvent.EndOfTime)
         {
             basicInfoText.text = string.Empty;
             causeOfDeath.text = string.Empty;
+            completedRituals.text = string.Empty;
         }
     }
 

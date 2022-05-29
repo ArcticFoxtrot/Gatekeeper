@@ -23,7 +23,6 @@ public class ScoreKeeper : MonoBehaviour
         {
             bool positiveChange = (bool)gameEvent.Arguments[0];
             bool sentToEarth = (bool)gameEvent.Arguments[1];
-             Debug.Log("Updating score! Was positive? " + positiveChange + " and was sent to earth? "+ sentToEarth);
             if(!sentToEarth)
             {
                 int multiplier = positiveChange ? 1 : -1;

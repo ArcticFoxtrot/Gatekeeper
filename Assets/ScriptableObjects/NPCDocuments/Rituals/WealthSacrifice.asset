@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WealthSacrifice
   m_EditorClassIdentifier: 
   Description: Sacrificed some of their own wealth in the pyre.
-  FulfilledCriteria: 
+  FulfilledCriteria: 02000000

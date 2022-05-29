@@ -52,6 +52,11 @@ public class God
     {
         scoreWithGod += toAdd; // this could have a multiplier based on how volatile the god is in their opinions
         GameEventManager.Send(new GameEvent(this, GameEvent.ScoreChangedForGod,new object[]{this} ));
+        if(scoreWithGod < -20)
+        {
+            GameEventManager.Send(new GameEvent(this, GameEvent.GameEnded));
+        }
+        
     }
 }
 

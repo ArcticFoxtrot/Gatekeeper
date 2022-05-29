@@ -17,7 +17,7 @@ public class GodInformationHandler : MonoBehaviour
     }
 
     private void OnDisable() {
-        GameEventManager.OnGameEvent += HandleGameEvent;
+        GameEventManager.OnGameEvent -= HandleGameEvent;
     }
 
     private void HandleGameEvent(object sender, GameEvent gameEvent)

@@ -126,6 +126,7 @@ public class NameCriterion : ICriterion
 public class CauseOfDeathCriterion : ICriterion
 {
     public CauseOfDeath Cause;
+    public String Description;
 
     public CauseOfDeathCriterion(CauseOfDeath cause)
     {
@@ -144,7 +145,7 @@ public class CauseOfDeathCriterion : ICriterion
 
     public string GetDescription()
     {
-        return String.Format("Died by {0}", Cause.ToString());
+        return String.Format(Extensions.CauseOfDeathConverter(Cause));
     }
 }
 
@@ -193,7 +194,7 @@ public class RitualCriterion : ICriterion
 
     public string GetDescription()
     {
-        return String.Format("Ritual completed: {0}", Ritual.ToString());
+        return String.Format(Extensions.RitualConverter(Ritual));
     }
 }
 

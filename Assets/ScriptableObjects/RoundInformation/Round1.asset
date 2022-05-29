@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Round1
   m_EditorClassIdentifier: 
   RoundIndex: 1
-  RoundLength: 30
+  RoundLength: 120
   RoundDescription: First round
-  RoundNumberOfPeopleInQueue: 10
+  RoundNumberOfPeopleInQueue: 20
   RoundNumberOfOfficialCriteria: 4

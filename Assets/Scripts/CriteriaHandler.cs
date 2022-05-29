@@ -44,7 +44,6 @@ public class CriteriaHandler : MonoBehaviour
         { 
             if(gameEvent.Arguments[3] is int numberOfCriteria)
             {
-                Debug.LogWarning("Creating new acceptance criteria and number is! " + numberOfCriteria);
                 List<ICriterion> criteria = new List<ICriterion>(acceptedCriteriaForGods.Keys);
                 officialAcceptedCriteria.Clear();
                 if(criteria.Count > 0)
@@ -94,7 +93,6 @@ public class CriteriaHandler : MonoBehaviour
 
     public void AddOfficialCriteria(ICriterion newCriteria)
     {
-        Debug.Log("Added to official criteria: " + newCriteria.ToString());
         officialAcceptedCriteria.Add(newCriteria);
         GameEventManager.Send(new GameEvent(this, GameEvent.OfficialCriteriaAdded, new object[]{officialAcceptedCriteria}));
     }
@@ -108,7 +106,6 @@ public class CriteriaHandler : MonoBehaviour
         {
             if(criterion.CheckForMatches(npc))
             {
-                Debug.Log("Handling NPC Rejected, rejected someone with matching criteria " + criterion.ToString());
                 GameEventManager.Send(new GameEvent(this, GameEvent.PlayerScoreChanged, new object[]{false, false}));
             }
         }
@@ -133,7 +130,6 @@ public class CriteriaHandler : MonoBehaviour
         {
             if(criterion.CheckForMatches(npc))
             {
-                Debug.Log("Handling NPC Accepted, Accepted someone with matching criteria " + criterion.ToString());
                 GameEventManager.Send(new GameEvent(this, GameEvent.PlayerScoreChanged, new object[]{true, false}));
             }
         }
@@ -152,7 +148,6 @@ public class CriteriaHandler : MonoBehaviour
 
     public void HandleNPCReturned(NPC npc)
     {
-        Debug.Log("Handling NPC Returned");
         foreach(var criterion in officialAcceptedCriteria)
         {
             if(criterion.CheckForMatches(npc))

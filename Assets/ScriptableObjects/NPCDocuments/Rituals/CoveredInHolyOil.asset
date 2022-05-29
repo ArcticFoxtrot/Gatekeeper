@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CoveredInHolyOil
   m_EditorClassIdentifier: 
   Description: After death, was anointed with the oils blessed by the priests.
-  FulfilledCriteria: 
+  FulfilledCriteria: 03000000

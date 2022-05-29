@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FoodSacrifice
   m_EditorClassIdentifier: 
   Description: Gave a food sacrifice at the correct altar.
-  FulfilledCriteria: 
+  FulfilledCriteria: 01000000

@@ -96,8 +96,9 @@ public class NPCGenerator : MonoBehaviour
 
     }
 
-    public void SetRoundMaximum(int maxNumber)
+    public void ResetRoundWithMaximum(int maxNumber)
     {
+        generatedNPCs = 0;
         maximumNPCsForCurrentRound = maxNumber;
     }
 
