@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 153d025898a4c544d9a64cb0f640426b, type: 3}
-  m_Name: Round2
+  m_Name: Round1 4
   m_EditorClassIdentifier: 
   RoundIndex: 1
-  RoundLength: 120
-  RoundDescription: Second round
-  RoundNumberOfPeopleInQueue: 15
-  RoundNumberOfOfficialCriteria: 6
+  RoundLength: 90
+  RoundDescription: First round
+  RoundNumberOfPeopleInQueue: 25
+  RoundNumberOfOfficialCriteria: 5
