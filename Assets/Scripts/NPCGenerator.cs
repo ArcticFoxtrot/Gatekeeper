@@ -7,14 +7,14 @@ public class NPCGenerator : MonoBehaviour
 {
 
     [SerializeField] private GameObject visualsPrefab;
-    [Header("References to NPC visuals")]
+
 
     [Inject]
     private INPCVisualDataProvider npcVisualDataProvider;
-    [Header("References to NPC information")]
-    [SerializeField] private NPCCauseOfDeathCatalog causeOfDeathCatalog;
-    [SerializeField] private NPCBasicInformationSets NPCBasicInformationSets;
-    [SerializeField] private NPCRitualCatalog ritualCatalog;
+
+    [Inject]
+    private INPCDataProvider npcDataProvider;
+
     [Header("NPC Skin color settings")]
     [SerializeField] private Color[] availableSkinColors;
 
@@ -108,17 +108,17 @@ public class NPCGenerator : MonoBehaviour
         if (npcObject.TryGetComponent<NPC>(out NPC npc))
         {
             //get random stuff
-            npc.CauseOfDeath = causeOfDeathCatalog.GetRandom().GetCauseOfDeathDocument();
+            npc.CauseOfDeath = npcDataProvider.GetRandomCauseOfDeath();
             if (npc.CauseOfDeath == null)
             {
                 Debug.LogError("cause of death is null");
             }
-            npc.BasicInformation = NPCBasicInformationSets.GetRandomNPCInformation();
+            npc.BasicInformation = npcDataProvider.GetRandomNPCInformation();
             if (String.IsNullOrEmpty(npc.BasicInformation.Name.ToString()))
             {
                 Debug.LogError("basic info is null");
             }
-            npc.Ritual = ritualCatalog.GetRandom().GetRitualDocument();
+            npc.Ritual = npcDataProvider.GetRandomRitual();
             if (npc.Ritual == null)
             {
                 Debug.LogError("ritual document is null");

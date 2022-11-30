@@ -13,7 +13,7 @@ public class GodGenerator : MonoBehaviour
 
     private List<God> allGods = new List<God>();
 
-    public void Initialize()
+    private void Awake()
     {
         var god = GenerateGod(0);
         var god2 = GenerateGod(1);

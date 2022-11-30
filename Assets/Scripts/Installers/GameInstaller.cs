@@ -11,6 +11,7 @@ namespace Gatekeeper.Data
         {
             Container.BindInterfacesAndSelfTo<GodDataProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<NPCVisualDataProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<NPCDataProvider>().AsSingle();
         }
     }
 }

@@ -168,6 +168,7 @@ MonoBehaviour:
   _scriptableObjectInstallers:
   - {fileID: 11400000, guid: 36e739fd2761f394e997c02d4b7cd3b1, type: 2}
   - {fileID: 11400000, guid: 711194942e3f3df478c41d1c81a76ae6, type: 2}
+  - {fileID: 11400000, guid: 634fde2bf82741747b8ce2872ee764b8, type: 2}
   _monoInstallers:
   - {fileID: 328880708}
   _installerPrefabs: []
@@ -627,18 +628,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c923caf00932e44b9a1beff35038471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  godGenerator: {fileID: 1132840354348183255}
---- !u!114 &1132840354348183255 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1132840354806228972, guid: 9fcbb1c0e8a478745a50da1dc61f56ab, type: 3}
-  m_PrefabInstance: {fileID: 1132840354348183240}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1132840354348183241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be197f3d338ecf458b40de1712da483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3195066269291510551

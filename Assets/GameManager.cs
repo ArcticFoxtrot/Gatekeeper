@@ -4,10 +4,5 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GodGenerator godGenerator;
 
-    private void Start()
-    {
-        godGenerator?.Initialize();
-    }
 }

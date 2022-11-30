@@ -1,7 +1,8 @@
 
 using UnityEngine;
+using Gatekeeper.Data;
 
-public class NPC : MonoBehaviour 
+public class NPC : MonoBehaviour
 {
 
     public NPCBasicInformation BasicInformation;
@@ -17,7 +18,7 @@ public class NPC : MonoBehaviour
 
     public void WindowReached()
     {
-        GameEventManager.Send(new GameEvent(this, GameEvent.NextNPCReady, new object[]{this.gameObject}));
+        GameEventManager.Send(new GameEvent(this, GameEvent.NextNPCReady, new object[] { this.gameObject }));
     }
 
     public void AnimationEnded()
