@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34bcc963a4ca6694d816f22c4f5ee5f6, type: 3}
+  m_Name: NPCVisualData
+  m_EditorClassIdentifier: 
+  VisualsData:
+    HairSprites:
+    - {fileID: 21300000, guid: 2f51b7045084ecb44ad288fc9fcaab0c, type: 3}
+    - {fileID: 21300000, guid: b23a4332bbb38334fa0d26013bf0d845, type: 3}
+    - {fileID: 21300000, guid: 9b2813f47b14abd458427ba1a2b1c8b0, type: 3}
+    - {fileID: 21300000, guid: 83d1d158429a7834ba73df50c97f9ba6, type: 3}
+    EyeBrowSprites:
+    - {fileID: 21300000, guid: 19f5db72fa988dd4fb63477fb90baf72, type: 3}
+    - {fileID: 21300000, guid: fa8e76009f6c28645912cb6739acdff9, type: 3}
+    - {fileID: 21300000, guid: fb0abe1b0ad347545846d3381d6711df, type: 3}
+    - {fileID: 21300000, guid: 4b454bb5e7b28d343a552ee05483b534, type: 3}
+    EyeSprites:
+    - {fileID: 21300000, guid: 11027688d3dca8a4e84b7d5b116a9e65, type: 3}
+    - {fileID: 21300000, guid: 0d039f639f216de4ab23af00f7521205, type: 3}
+    - {fileID: 21300000, guid: 7e9be59b9ff85ed49bba24bff39725c0, type: 3}
+    - {fileID: 21300000, guid: db96e9dc7bfaf5745b1c56259fbdf04d, type: 3}
+    - {fileID: 21300000, guid: 4c7b8511c3bf520499c7cd45a22d6de9, type: 3}
+    NoseSprites:
+    - {fileID: 21300000, guid: 37653aff168221643bd37ed16be2c8e1, type: 3}
+    - {fileID: 21300000, guid: 4a087047a63730446be0d2012ad77c7c, type: 3}
+    - {fileID: 21300000, guid: f43c3a6c48a0fac478a9e6a19e0fd4f7, type: 3}
+    - {fileID: 21300000, guid: 284953f0bc598aa428b893b6e31ce412, type: 3}
+    EarSprites:
+    - {fileID: 21300000, guid: 7deb1d755b413ca409792309efa5a089, type: 3}
+    - {fileID: 21300000, guid: e1fca4aa1da9a87488e31baa2442ac67, type: 3}
+    - {fileID: 21300000, guid: 6551c86f5a2b80344b89dd72a3a23688, type: 3}
+    - {fileID: 21300000, guid: 1a29ac2b01a014e4d9473a8b6784b7d2, type: 3}
+    MouthSprites:
+    - {fileID: 21300000, guid: 74734da62fedc394aa01b90d469e3813, type: 3}
+    - {fileID: 21300000, guid: a680e6951571ed14985ac2e40f8d5fba, type: 3}
+    - {fileID: 21300000, guid: 4911212d2eff0c547a06c075425c3d18, type: 3}
+    - {fileID: 21300000, guid: c3f1e7b15dd0200498bb2912f212ad51, type: 3}
+    HeadPrefabs:
+    - {fileID: 8993170669958677801, guid: 2d3ab7ed6bd59334cbe323ef65f9eaa8, type: 3}
+    - {fileID: 8993170669958677801, guid: 622e6b8917ddcd144b4ee0e5e23c6c60, type: 3}

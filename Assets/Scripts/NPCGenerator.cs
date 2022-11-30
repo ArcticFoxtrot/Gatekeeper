@@ -1,17 +1,16 @@
 using System;
 using UnityEngine;
+using Zenject;
+using Gatekeeper.Data;
+
 public class NPCGenerator : MonoBehaviour
 {
 
     [SerializeField] private GameObject visualsPrefab;
     [Header("References to NPC visuals")]
-    [SerializeField] private NPCHairCatalog hairs;
-    [SerializeField] private NPCHeadCatalog heads;
-    [SerializeField] private NPCEyeBrowCatalog eyeBrows;
-    [SerializeField] private NPCEyeCatalog eyes;
-    [SerializeField] private NPCNoseCatalog noses;
-    [SerializeField] private NPCEarCatalog ears;
-    [SerializeField] private NPCMouthCatalog mouths;
+
+    [Inject]
+    private INPCVisualDataProvider npcVisualDataProvider;
     [Header("References to NPC information")]
     [SerializeField] private NPCCauseOfDeathCatalog causeOfDeathCatalog;
     [SerializeField] private NPCBasicInformationSets NPCBasicInformationSets;
@@ -25,30 +24,32 @@ public class NPCGenerator : MonoBehaviour
     private int generatedNPCs = 0;
     private int maximumNPCsForCurrentRound = 1;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         GameEventManager.OnGameEvent += HandleGameEvent;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         GameEventManager.OnGameEvent -= HandleGameEvent;
     }
 
     public GameObject GenerateNPC()
     {
-        if(generatedNPCs < maximumNPCsForCurrentRound)
+        if (generatedNPCs < maximumNPCsForCurrentRound)
         {
-            GameObject npcObject = GameObject.Instantiate(heads.GetRandom().HeadPrefab, this.transform.position, Quaternion.identity);
+            GameObject npcObject = GameObject.Instantiate(npcVisualDataProvider.GetRandomHead(), this.transform.position, Quaternion.identity);
 
-            if(npcObject.TryGetComponent(out NPC npc))
+            if (npcObject.TryGetComponent(out NPC npc))
             {
                 HeadController headController = npcObject.GetComponentInChildren<HeadController>();
                 //set npc visuals
-                Sprite hair = hairs.GetRandom();
-                Sprite eyeBrow = eyeBrows.GetRandom();
-                Sprite eye = eyes.GetRandom();
-                Sprite nose = noses.GetRandom();
-                Sprite ear = ears.GetRandom();
-                Sprite mouth = mouths.GetRandom();
+                Sprite hair = npcVisualDataProvider.GetRandomHair();
+                Sprite eyeBrow = npcVisualDataProvider.GetRandomEyebrow();
+                Sprite eye = npcVisualDataProvider.GetRandomEyes();
+                Sprite nose = npcVisualDataProvider.GetRandomNose();
+                Sprite ear = npcVisualDataProvider.GetRandomEar();
+                Sprite mouth = npcVisualDataProvider.GetRandomMouth();
 
                 //set positions for sprites on head
                 //hair
@@ -85,14 +86,14 @@ public class NPCGenerator : MonoBehaviour
 
             //setup NPC information
             SetupInformation(npcObject);
-            GameEventManager.Send(new GameEvent(this, GameEvent.NPCCreated, new object[]{npcObject}));
+            GameEventManager.Send(new GameEvent(this, GameEvent.NPCCreated, new object[] { npcObject }));
             generatedNPCs++;
             return npcObject;
         }
         else
         {
             return null;
-        } 
+        }
 
     }
 
@@ -104,21 +105,21 @@ public class NPCGenerator : MonoBehaviour
 
     private void SetupInformation(GameObject npcObject)
     {
-        if(npcObject.TryGetComponent<NPC>(out NPC npc))
+        if (npcObject.TryGetComponent<NPC>(out NPC npc))
         {
             //get random stuff
             npc.CauseOfDeath = causeOfDeathCatalog.GetRandom().GetCauseOfDeathDocument();
-            if(npc.CauseOfDeath == null)
+            if (npc.CauseOfDeath == null)
             {
                 Debug.LogError("cause of death is null");
             }
             npc.BasicInformation = NPCBasicInformationSets.GetRandomNPCInformation();
-            if(String.IsNullOrEmpty(npc.BasicInformation.Name.ToString()))
+            if (String.IsNullOrEmpty(npc.BasicInformation.Name.ToString()))
             {
                 Debug.LogError("basic info is null");
             }
             npc.Ritual = ritualCatalog.GetRandom().GetRitualDocument();
-            if(npc.Ritual == null)
+            if (npc.Ritual == null)
             {
                 Debug.LogError("ritual document is null");
             }
@@ -127,17 +128,17 @@ public class NPCGenerator : MonoBehaviour
 
     private void ApplyColor(SpriteRenderer renderer, Color color)
     {
-        if(renderer != null)
+        if (renderer != null)
         {
             renderer.color = color;
         }
-        
+
     }
 
     private void HandleGameEvent(object sender, GameEvent gameEvent)
     {
-       
+
     }
-    
+
 }
 

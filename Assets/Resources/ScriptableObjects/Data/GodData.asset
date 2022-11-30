@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64615698fc08b7649a66cc690cc2d9d4, type: 3}
+  m_Name: GodData
+  m_EditorClassIdentifier: 
+  GodDatas:
+  - Index: 0
+    Name: MMMMBergele
+    Image: {fileID: 21300000, guid: 556a2f3b046024d4c9621c1b4be5f0c1, type: 3}
+    Description: mmmm berl
+    MinPointsBeforeGameOver: -100
+    CauseOfDeathCriteria: 000000000300000001000000
+    OriginCriteria: 00000000
+    AgeCriteriaMin: 1
+    AgeCriteriaMax: 14
+    NameCriteria: 060000000c000000
+    RitualCriteria: 05000000
+  - Index: 1
+    Name: Christian Eriksen
+    Image: {fileID: 21300000, guid: 5955491dc8dcecb4a993d9a008cf65a7, type: 3}
+    Description: 'juuh '
+    MinPointsBeforeGameOver: -100
+    CauseOfDeathCriteria: 0000000008000000
+    OriginCriteria: 0000000004000000
+    AgeCriteriaMin: 12
+    AgeCriteriaMax: 123
+    NameCriteria: 05000000
+    RitualCriteria: 03000000
+  - Index: 2
+    Name: "Ei Taidot Riit\xE4"
+    Image: {fileID: 21300000, guid: f008857e434b98b4eaabda1fd6af3059, type: 3}
+    Description: "elikk\xE4s"
+    MinPointsBeforeGameOver: -100
+    CauseOfDeathCriteria: 0400000002000000
+    OriginCriteria: 
+    AgeCriteriaMin: 23
+    AgeCriteriaMax: 44
+    NameCriteria: 0c0000000800000004000000
+    RitualCriteria: 0400000002000000
