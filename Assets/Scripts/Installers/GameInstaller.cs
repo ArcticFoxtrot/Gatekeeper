@@ -13,6 +13,7 @@ namespace Gatekeeper.Data
             Container.BindInterfacesAndSelfTo<NPCVisualDataProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<NPCDataProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<RoundDataProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerRankDataProvider>().AsSingle();
         }
     }
 }

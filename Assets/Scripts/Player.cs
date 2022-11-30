@@ -1,27 +1,32 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Gatekeeper.Data;
+using Zenject;
 public class Player : MonoBehaviour
 {
     public int TotalScore;
     public Rank CurrentPosition;
-    [SerializeField] private PlayerRankCatalog rankCatalog;
+    [Inject]
+    private IPlayerRankDataProvider playerRankDataProvider;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         GameEventManager.OnGameEvent += HandleGameEvent;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         GameEventManager.OnGameEvent -= HandleGameEvent;
     }
 
     private void HandleGameEvent(object sender, GameEvent gameEvent)
     {
-        if(gameEvent.EventType == GameEvent.PlayerScoreChanged)
+        if (gameEvent.EventType == GameEvent.PlayerScoreChanged)
         {
             bool positiveChange = (bool)gameEvent.Arguments[0];
             bool sentToEarth = (bool)gameEvent.Arguments[1];
-            if(!sentToEarth)
+            if (!sentToEarth)
             {
                 int multiplier = positiveChange ? 1 : -1;
                 TotalScore += multiplier;
@@ -32,12 +37,12 @@ public class Player : MonoBehaviour
                 TotalScore += multiplier;
             }
         }
-  
+
     }
 
     public Rank GetCurrentPosition()
     {
-        CurrentPosition = rankCatalog.GetRankWithPoints(TotalScore).Rank;
+        CurrentPosition = playerRankDataProvider.GetRankWithPoints(TotalScore).Rank;
         return CurrentPosition;
     }
 }

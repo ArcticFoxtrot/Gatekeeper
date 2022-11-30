@@ -170,6 +170,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 711194942e3f3df478c41d1c81a76ae6, type: 2}
   - {fileID: 11400000, guid: 634fde2bf82741747b8ce2872ee764b8, type: 2}
   - {fileID: 11400000, guid: fd159dd7a4743b043854f083aabaee07, type: 2}
+  - {fileID: 11400000, guid: 7f7fc403daf7e714ea0e22ab16b6deb9, type: 2}
   _monoInstallers:
   - {fileID: 328880708}
   _installerPrefabs: []
@@ -607,7 +608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TotalScore: 0
   CurrentPosition: 0
-  rankCatalog: {fileID: 11400000, guid: 0af79290f5d95144d852311d1555fe7a, type: 2}
 --- !u!114 &1132840354348183251 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1132840354348183242, guid: 9fcbb1c0e8a478745a50da1dc61f56ab, type: 3}

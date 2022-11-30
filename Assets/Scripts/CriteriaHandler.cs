@@ -26,7 +26,6 @@ public class CriteriaHandler : MonoBehaviour
         {
             foreach (var criterion in newGod.PleasingCriteria)
             {
-                Debug.Log("Trying to add criteria to accepted criteria for gods");
                 if (acceptedCriteriaForGods.ContainsKey(criterion))
                 {
                     //modify the key to include the god
@@ -47,12 +46,10 @@ public class CriteriaHandler : MonoBehaviour
         {
             if (gameEvent.Arguments[3] is int numberOfCriteria)
             {
-                Debug.Log("Round started and adding official criteria");
                 List<ICriterion> criteria = new List<ICriterion>(acceptedCriteriaForGods.Keys);
                 officialAcceptedCriteria.Clear();
                 if (criteria.Count > 0)
                 {
-                    Debug.Log("Round started and adding official criteria, there are more than 0 criteria available, number of criteria wanted is " + numberOfCriteria);
                     while (officialAcceptedCriteria.Count < numberOfCriteria)
                     {
                         //for each god get a random criteria, but no duplicates
