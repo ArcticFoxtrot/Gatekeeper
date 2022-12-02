@@ -171,6 +171,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 634fde2bf82741747b8ce2872ee764b8, type: 2}
   - {fileID: 11400000, guid: fd159dd7a4743b043854f083aabaee07, type: 2}
   - {fileID: 11400000, guid: 7f7fc403daf7e714ea0e22ab16b6deb9, type: 2}
+  - {fileID: 11400000, guid: 53422c21c0d2a384fad306976de7b386, type: 2}
   _monoInstallers:
   - {fileID: 328880708}
   _installerPrefabs: []
@@ -215,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 473397048}
   - component: {fileID: 473397047}
+  - component: {fileID: 473397049}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -231,7 +233,7 @@ AudioSource:
   m_GameObject: {fileID: 473397046}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3258374818520197287, guid: 9e3f94b1c35378248845c8984f183cac, type: 2}
   m_audioClip: {fileID: 8300000, guid: 059bfda60fbb16a4589f2715f711567e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -333,6 +335,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473397049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473397046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6674badf78426194190fab996870c224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 473397047}
+  oneShotAudioSourcePrefab: {fileID: 7964093723632757406, guid: fba2468cb0f53824190cead1307300e1, type: 3}
 --- !u!114 &644021423 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3866664460273636237, guid: 341f33aa7db75bd4d89dc562729d1ba6, type: 3}
@@ -631,6 +647,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c923caf00932e44b9a1beff35038471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1132840354348183259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132840354348183241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1132840354348183252}
+  _identifier: GameManager
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!1001 &3195066269291510551
 PrefabInstance:
   m_ObjectHideFlags: 0

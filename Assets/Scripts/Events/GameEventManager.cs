@@ -30,6 +30,7 @@ public class GameEvent
     public const string StartNewShift = "StartNewShift";
     public const string ScoreChangedForGod = "ScoreChangedForGod";
     public const string GameEnded = "GameEnded";
+    public const string GameStateChanged = "GameStateChanged";
 }
 
 public static class GameEventManager

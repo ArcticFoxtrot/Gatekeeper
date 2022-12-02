@@ -14,6 +14,7 @@ namespace Gatekeeper.Data
             Container.BindInterfacesAndSelfTo<NPCDataProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<RoundDataProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerRankDataProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AudioDataProvider>().AsSingle();
         }
     }
 }
